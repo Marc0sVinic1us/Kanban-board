@@ -1,0 +1,153 @@
+
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.singIn-title {
+  margin-top: 5vh;
+  padding-bottom: 50px; 
+  font-size: 35px;
+  height: 30px;
+  text-align: center;
+}
+
+.singIn-labels {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(51, 134, 160);
+  font-weight: bold;
+}
+
+a:hover {
+  color: rgb(42, 110, 131);
+}
+
+.userCredentials-inputs {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  line-height: 10px;
+  height: 48vh;
+  width: 40vw;
+  border-radius: 20px;  
+  margin-top: 20vh;
+  padding-top: 1px;
+  
+  color: rgb(82, 80, 80);
+  background-color: rgba(252, 252, 252, 0.781);
+}
+
+.singIn-inputs {
+  margin-left: 11vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.singIn-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.btn_singIn {
+  height: 45px;
+  width: 220px;
+  border-radius: 10px;
+  font-size: 18px;
+  margin-top: 50px;
+  border: solid 2px transparent;
+  transition: all 0.2s;
+  background-color: rgb(67, 167, 197);
+}
+
+.container-btnSingIn {
+  display: flex;  
+  justify-content: center;
+  text-align: center;
+}
+
+.username_input {
+  text-align: start;
+  height: 40px;
+  width: 350px;
+  padding: 10px;
+  border: solid 2px transparent;
+  border-radius: 8px;
+  transition: all, 0.2s;
+  background-color: rgb(255, 255, 255);
+}
+
+.password_input {
+  text-align: start;
+  border: solid 2px transparent;  
+  height: 40px;
+  width: 280px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all, 0.2s;
+  background-color: rgb(255, 255, 255);
+}
+
+.password-container {
+  display: flex;
+  align-items: center;  
+  
+  height: 40px;
+  width: 300px;
+  padding: 0px;
+  border-radius: 8px;   
+  gap: 4px;
+  border: solid 2px transparent;
+  
+  transition: all, 0.2s;
+  background-color: white;
+}
+
+.eye-icon {
+  height: 25px; 
+  border: solid 2px transparent;
+  border-radius: 10px;
+  transition: all, 0.2s;
+  padding: 2px;
+}
+
+.eye-icon:hover {
+  background-color: rgba(240, 239, 239, 0.911);
+  border: solid 2px rgb(207, 207, 207);
+  cursor: pointer;
+}
+
+.username_input:hover {
+  background-color: rgba(240, 239, 239, 0.911);
+  border: solid 2px rgb(207, 207, 207);
+}
+
+.password_input:hover {
+  background-color: rgba(240, 239, 239, 0.911);
+}
+
+.btn_singIn:hover {
+  background-color: rgb(62, 147, 173);
+  border: solid 2px rgb(71, 164, 192);
+}
+
+.link-singUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 10px;
+}
