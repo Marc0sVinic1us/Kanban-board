@@ -39,4 +39,3 @@ class SingUp(db.Model):
                     'status': False, 
                     'message': 'Erro no cadastro de usuário'
                     }
-        

@@ -1,6 +1,5 @@
 from flask import *
 from models.user import SingUp
-from controllers.hash_password import hash_password
 from controllers.check_password import check_password
 from flask_jwt_extended import create_access_token
 
