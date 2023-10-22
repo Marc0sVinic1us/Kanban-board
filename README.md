@@ -23,5 +23,3 @@
 * Banco de dados: PostgreSQL.
 * Autenticação: Sistema de autenticação baseado em tokens, como JSON Web Tokens (JWT).
 * Infraestrutura (Servidor Web): Plataforma de nuvem Heroku.
-
-teste
