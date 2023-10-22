@@ -1,0 +1,31 @@
+
+.home-container {
+  height: 80vh;
+  width: 80vw;
+  border-radius: 20px;  
+  margin-top: 15vh;
+  padding-top: 1px;
+  
+  color: rgb(82, 80, 80);
+  background-color: rgba(252, 252, 252, 0.781);
+
+}
+
+.btn-createTask {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    font-size: 25px;
+    
+    margin-left: 20px;
+    margin-top: 20px;
+    border: solid 2px transparent;
+    transition: all 0.2s;
+    color: white;
+    background-color: rgb(67, 167, 197);
+}
+
+.btn-createTask:hover {
+    background-color: rgb(62, 147, 173);
+    border: solid 2px rgb(71, 164, 192);
+}

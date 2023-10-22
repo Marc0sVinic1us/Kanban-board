@@ -9,4 +9,4 @@ class ApplicationConfig:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:Vi28?0703@localhost/kanban-board'
     SQLALCHEMY_ECHO = False
-    
+    JWT_SECRET = "nwo$5n2!sc11CA?NC17n@8cnwqKRdqwPvqd2"

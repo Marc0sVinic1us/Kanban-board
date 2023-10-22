@@ -53,10 +53,10 @@ input[type="date"] {
 
 .register-container {
     line-height: 10px;
-    height: 80vh;
+    height: 85vh;
     width: 45vw;
     border-radius: 20px;  
-    margin-top: 10vh;
+    margin-top: 8vh;
     padding-top: 1vh;
   
     color: rgb(82, 80, 80);

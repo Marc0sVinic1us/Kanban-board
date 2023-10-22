@@ -20,11 +20,12 @@ def login():
         
         access_token = create_access_token(identity=username)
 
-        print("-> ACCESS TOKEN: ", access_token)
+        print("-> USUÁRIO LOGADO")
         
         return {
                 'status': True, 
-                'message': 'Login bem-sucedido'
+                'message': 'Login bem-sucedido',
+                'access_token': access_token
                 }
     else:
         return {

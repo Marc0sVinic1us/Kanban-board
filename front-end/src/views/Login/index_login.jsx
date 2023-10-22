@@ -28,7 +28,11 @@ function Login() {
         
         alert(data.message)
 
-        // Redireciona para a página incial da aplicação
+        sessionStorage.setItem("token", data.access_token); 
+        console.log("TOKEN -> ", data.access_token);
+
+        // Após loggado, redireciona o usuário para a tela de login
+        window.location.href = "/home";
       
       } else {
 
@@ -44,46 +48,50 @@ function Login() {
   }
     
   return (
-    <div className="login-container">     
-      
-      <h1 className='singIn-title'>Login</h1>
-      <form className="singIn-form" onSubmit={handleSubmit}>
-        
-        <div className="singIn-inputs">           
-          <label className='singIn-labels'>Email:</label>
-          <input 
-              type="email"
-              id="userEmail"
-              className="username_input"
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-              required
-          />
 
-          <label className='singIn-labels'>Senha:</label>
-          <PasswordInput 
-            state={password}
-            onChange={setPassword}
-          />
+    <div className="body-container">
+      
+      <div className="login-container">     
         
+        <h1 className='singIn-title'>Login</h1>
+        <form className="singIn-form" onSubmit={handleSubmit}>
+          
+          <div className="singIn-inputs">           
+            <label className='singIn-labels'>Email:</label>
+            <input 
+                type="email"
+                id="userEmail"
+                className="username_input"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+                required
+                />
+
+            <label className='singIn-labels'>Senha:</label>
+            <PasswordInput 
+              state={password}
+              onChange={setPassword}
+              />
+          
+          </div>
+        
+          <div className='container-btnSingIn'> 
+            <button 
+              type='submit'
+              className='btn_singIn'
+              >Entrar
+            </button>
+          </div>
+        
+        </form>
+
+        <div className='link-singUp'>
+          <p>Não tem cadastro?</p>
+          <a href='/singUp'>Clique aqui</a>
         </div>
       
-        <div className='container-btnSingIn'> 
-          <button 
-            type='submit'
-            className='btn_singIn'
-            >Entrar
-          </button>
-        </div>
-      
-      </form>
-
-      <div className='link-singUp'>
-        <p>Não tem cadastro?</p>
-        <a href='/singUp'>Clique aqui</a>
-      </div>
-    
-    </div>    
+      </div>    
+    </div>
   );
 }
 
