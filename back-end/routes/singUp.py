@@ -11,10 +11,7 @@ def singUp():
     
     user_singUp = request.form["user_singUp"]
 
-    name = user_singUp.split(",")[0]
-    email = user_singUp.split(",")[1]
-    dateBirth = user_singUp.split(",")[2]
-    password = user_singUp.split(",")[3]
+    (name, email, dateBirth, password) = user_singUp.split(",")
 
     # Criptografar a senha
     hashed_password = hash_password(password)

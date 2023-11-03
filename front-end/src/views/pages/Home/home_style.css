@@ -1,0 +1,78 @@
+
+.home-container {
+  height: 80vh;
+  width: 80vw;
+  border-radius: 20px;  
+  margin-top: 15vh;
+  padding-top: 1px;
+  
+  color: rgb(82, 80, 80);
+  background-color: rgba(252, 252, 252, 0.781);
+
+}
+
+.btn-createTask {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    font-size: 25px;
+    
+    margin-left: 20px;
+    margin-top: 20px;
+    border: solid 2px transparent;
+    transition: all 0.2s;
+    color: white;
+    background-color: rgb(67, 167, 197);
+}
+
+.btn-createTask:hover {
+    background-color: rgb(62, 147, 173);
+    border: solid 2px rgb(71, 164, 192);
+}
+
+.boards {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.boards aside {
+  background-color: transparent;
+  width: 18vw;
+  height: 60vh;
+}
+
+.boards aside h3 {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.boards aside section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  border: solid 1px rgb(62, 147, 173);
+  /* box-shadow: 3px 3px 12px #cacaca; */
+  
+  border-radius: 20px;
+  height: 100%;
+} 
+
+.task-card {
+  cursor: pointer;
+  background-color: white;
+  margin-top: 2%;
+  width: 95%;
+  height: 13%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px #888888;
+}
+
+.task-card h4, .task-card small {
+  padding-top: 10px;
+  padding-left: 20px;
+}

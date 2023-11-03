@@ -9,6 +9,8 @@ class SingUp(db.Model):
     useremail = db.Column(db.String(100), nullable=False)
     user_dateOfBirth = db.Column(db.Date, nullable=True)
     user_password = db.Column(db.String(200), nullable=False)
+
+    task = db.relationship('NewTask', back_populates='user')
     
     def __init__(self, username, useremail, user_dateOfBirth, user_password):
         self.username = username

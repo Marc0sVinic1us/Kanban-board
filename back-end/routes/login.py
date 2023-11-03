@@ -11,8 +11,7 @@ def login():
 
     user_credentials = request.form["user_credentials"]
     
-    username = user_credentials.split(",")[0]
-    password = user_credentials.split(",")[1]
+    (username, password) = user_credentials.split(",")
 
     user = SingUp.query.filter_by(useremail=username).first()
 
@@ -25,7 +24,9 @@ def login():
         return {
                 'status': True, 
                 'message': 'Login bem-sucedido',
-                'access_token': access_token
+                'access_token': access_token,
+                'username': user.username,
+                'userID': user.id
                 }
     else:
         return {
