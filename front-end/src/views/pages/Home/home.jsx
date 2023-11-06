@@ -1,16 +1,42 @@
 
-import React, { useState } from 'react';
+import { React, useState, useEffect } from 'react';
 
 import "./home_style.css"
 import "../../../styles/global.css"
 
 import Navbar from "../../components/Navbar/navbar.jsx";
 import ContainerCreateCard from "../../components/ContainerCreateCard/containerCreateCard.jsx";
-// import Board from "../../components/Board/index_board";
+import TaskCard from '../../components/TaksCard/taskcard.jsx';
 
 function Home() {
     
     const [popUpVisible, setPopupVisible] = useState(false);
+    const [taskCards, setTaskCards] = useState([]);
+
+    useEffect(() => {
+        
+        const formdata = new FormData();
+        const userID = sessionStorage.getItem("userID")
+        const token = sessionStorage.getItem("token")
+
+        formdata.append("userID", [userID])
+        
+        fetch("http://localhost:5000/showTasks", {
+            method: 'POST',
+            body: formdata,
+            headers: {
+                Authorization: "Bearer " + token
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+    
+            setTaskCards(data);
+        
+        })
+        .catch(err => console.error(err))
+    
+    }, [taskCards]);
     
     const token = sessionStorage.getItem("token")
     
@@ -24,17 +50,14 @@ function Home() {
 
     return (
 
-
         <div className="body-container">
             
             <Navbar />
             
             <ContainerCreateCard 
-            trigger={popUpVisible} 
-            setTrigger={setPopupVisible}
-            >   
-            </ContainerCreateCard>
-
+                trigger={popUpVisible} 
+                setTrigger={setPopupVisible}
+            /> 
 
             <div className="home-container">
 
@@ -42,37 +65,23 @@ function Home() {
 
                 <div className="boards">
 
-                    {/* <Board 
-                        header={"TO DO"}
-                    />
-                    
-                    <Board 
-                        header={"DOING"}
-                    />
-                    
-                    <Board 
-                        header={"DONE"}
-                    />
-                    */}
-
                     <aside>
                         <h3>TO DO</h3>
                         <section>
                             
-                            <div className="task-card">
-                                <h4>Dar banho no peixe</h4>
-                                <small>Usar toalha do banheiro</small>    
-                            </div>
-                            
-                            <div className="task-card">
-                                <h4>Tarefa facul</h4>
-                                <small>Seguir anotações do caderno</small>    
-                            </div>
-                            
-                            <div className="task-card">
-                                <h4>Limpar quarto</h4>
-                                <small></small>    
-                            </div>
+                            { taskCards !== null && taskCards !== undefined ?
+
+                                taskCards.map(task => (                                
+                                    
+                                    <TaskCard 
+                                        key={task.key}
+                                        taskname={task.taskname}
+                                        taskdescription={task.taskdescription}
+                                    />
+                                
+                                ))
+                                : ""
+                            }
                         
                         </section>
                     </aside>

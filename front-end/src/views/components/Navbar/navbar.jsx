@@ -7,12 +7,14 @@ function Navbar() {
 
     const handleLogout = () => {
         
+        
         // Limpa cookies
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("useremail");
         sessionStorage.removeItem("userID");
         
-        window.location.reload();
+        // Redireciona o usário para a tela de login
+        window.location.href = "/";
     }
 
     const firstUserName = sessionStorage.getItem("username").split(" ")[0]
