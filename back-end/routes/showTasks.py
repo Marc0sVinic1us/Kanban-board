@@ -5,7 +5,6 @@ from models.user import SingUp
 
 showTasks_blueprint = Blueprint('showTasks', __name__)
 
-# Rota com bloqueio de requisição sem o devido token
 @showTasks_blueprint.route('/showTasks', methods=['POST', 'GET'])
 @jwt_required()
 def showTasks():          
@@ -15,16 +14,15 @@ def showTasks():
     user = SingUp.query.get(userID)
 
     tasks = []
-    index = 0
     for task in user.task:
         tasks.append(
             {
-                "key": index,
+                "key": task.id,
                 "taskname": task.taskname,
-                "taskdescription": task.taskdescription
+                "taskdescription": task.taskdescription,
+                "taskpriority": task.taskpriority
             }
         )
-        index += 1
 
     return tasks
 

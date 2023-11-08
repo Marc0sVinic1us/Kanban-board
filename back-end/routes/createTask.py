@@ -3,8 +3,7 @@ from flask_jwt_extended import jwt_required
 from models.task import NewTask
 
 createTask_blueprint = Blueprint('createTask', __name__)
-
-# Rota com bloqueio de requisição sem o devido token
+    
 @createTask_blueprint.route('/createTask', methods=['POST'])
 @jwt_required()
 def createTask():          

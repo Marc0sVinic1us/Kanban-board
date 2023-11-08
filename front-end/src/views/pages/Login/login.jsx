@@ -25,8 +25,6 @@ function Login() {
     .then(data => {
       
       if (data.status) {
-        
-        alert(data.message)
 
         sessionStorage.setItem("token", data.access_token);
         sessionStorage.setItem("username", data.username);

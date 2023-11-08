@@ -76,6 +76,7 @@
 
 .taskForm select {
     outline: none;
+    cursor: pointer;
     
     font-weight: 600;
     width: 400px;

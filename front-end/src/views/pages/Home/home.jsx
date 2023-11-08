@@ -77,6 +77,7 @@ function Home() {
                                         key={task.key}
                                         taskname={task.taskname}
                                         taskdescription={task.taskdescription}
+                                        taskpriority={task.taskpriority}
                                     />
                                 
                                 ))
