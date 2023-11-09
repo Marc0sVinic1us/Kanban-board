@@ -5,23 +5,35 @@ function TaskCard(props) {
 
     let priorityColor = 'solid 3px ';
     
-    if (props.taskpriority === 1) {
+    if (props.taskPriority === 1) {
         priorityColor += 'red'
     
-    } else if (props.taskpriority === 2) {
+    } else if (props.taskPriority === 2) {
         priorityColor += 'orange';
     
-    } else if (props.taskpriority === 3) {
-        priorityColor += 'yellow';
+    } else if (props.taskPriority === 3) {
+        priorityColor += 'gold';
     
-    } else if (props.taskpriority === 4) {
+    } else if (props.taskPriority === 4) {
         priorityColor += 'lightgreen';
     }
 
+    const handleClick = () => {
+        props.setTriggerViewTask(true); 
+        props.setTaskDataView(
+            {
+                "taskKey": props.taskKey,
+                "taskName" : props.taskName,
+                "taskDescription": props.taskDescription,
+                "taskPriority": props.taskPriority
+            }
+        );       
+    }
+
     return (
-        <div className="task-card" style={{border: priorityColor}}>
-            <strong>{props.taskname}</strong>
-            <small>{props.taskdescription}</small>    
+        <div className="task-card" onClick={handleClick} style={{border: priorityColor}}>
+            <strong>{props.taskName}</strong>
+            <small>{props.taskDescription}</small>    
         </div>
     )
 }

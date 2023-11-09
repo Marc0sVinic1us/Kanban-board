@@ -6,12 +6,16 @@ import "../../../styles/global.css"
 
 import Navbar from "../../components/Navbar/navbar.jsx";
 import ContainerCreateCard from "../../components/ContainerCreateCard/containerCreateCard.jsx";
+import ContainerViewCard from '../../components/ContainerViewCard/containerViewCard.jsx';
 import TaskCard from '../../components/TaksCard/taskcard.jsx';
 
 function Home() {
     
     const [popUpVisible, setPopupVisible] = useState(false);
+    const [refreshTasks, setRefreshTasks] = useState(false);
+    const [popupTask, setPopupTask] = useState(false);
     const [taskCards, setTaskCards] = useState([]);
+    const [taskDataView, setTaskDataView] = useState(null);
 
     useEffect(() => {
         
@@ -36,7 +40,7 @@ function Home() {
         })
         .catch(err => console.error(err))
     
-    }, [taskCards]);
+    }, [(refreshTasks ? taskCards : "")]);
     
     const token = sessionStorage.getItem("token")
     
@@ -48,16 +52,42 @@ function Home() {
         setPopupVisible(true);   
     }
 
+    const handleRefresh = () => {
+        
+        if (refreshTasks) {
+            setRefreshTasks(false)
+            setTimeout(() => {
+                setRefreshTasks(true)
+            }, 100);
+        
+        } else {
+            setRefreshTasks(true)
+            setTimeout(() => {
+                setRefreshTasks(false)
+            }, 100);
+        }
+    }
+
     return (
 
         <div className="body-container">
             
             <Navbar />
-            
-            <ContainerCreateCard 
-                trigger={popUpVisible} 
-                setTrigger={setPopupVisible}
-            /> 
+
+            { popUpVisible ?
+                <ContainerCreateCard 
+                    setTrigger={setPopupVisible}
+                    refreshTasks={handleRefresh}
+                /> 
+            : "" }
+
+            { popupTask ? 
+                <ContainerViewCard 
+                    setTrigger={setPopupTask}
+                    taskData={taskDataView}
+                /> 
+            : ""}
+
 
             <div className="home-container">
 
@@ -69,15 +99,18 @@ function Home() {
                         <h3>TO DO</h3>
                         <section>
                             
-                            { taskCards !== null && taskCards !== undefined ?
+                            { taskCards !== null && taskCards !== undefined && Array.isArray(taskCards) ?
 
-                                taskCards.map(task => (                                
+                                taskCards.map(task => (                            
                                     
                                     <TaskCard 
                                         key={task.key}
-                                        taskname={task.taskname}
-                                        taskdescription={task.taskdescription}
-                                        taskpriority={task.taskpriority}
+                                        taskKey={task.key}
+                                        taskName={task.taskname}
+                                        taskDescription={task.taskdescription}
+                                        taskPriority={task.taskpriority}
+                                        setTriggerViewTask={setPopupTask}
+                                        setTaskDataView={setTaskDataView}
                                     />
                                 
                                 ))

@@ -37,6 +37,7 @@ function ContainerCreateCard(props) {
             
             if (data.status) {
                 props.setTrigger(false);
+                props.refreshTasks();
             }
         })
         .catch(err => console.error(err))
@@ -46,11 +47,11 @@ function ContainerCreateCard(props) {
         setTaskPriority("");
     }
 
-    return (props.trigger) ? (
+    return (
         <div className='pop-up'>
             <div className='popUp-content'>
                 
-                <button className='btn-close' onClick={() => props.setTrigger(false)}>X</button>
+                <button className='btn-close' title='Fechar painel' onClick={() => props.setTrigger(false)}>X</button>
                 
                 <h2>Nova tarefa</h2>
                     
@@ -88,13 +89,13 @@ function ContainerCreateCard(props) {
                         <option value="4">Prioridade 4</option>
                     </select>
 
-                    <button type='submit' className='btn-create'>Criar</button> 
+                    <button type='submit' title='Criar tarefa' className='btn-create'>Criar</button> 
                     
                 </form>
                 
             </div>
         </div>
-    ) : "";
+    );
 }
 
 export default ContainerCreateCard;

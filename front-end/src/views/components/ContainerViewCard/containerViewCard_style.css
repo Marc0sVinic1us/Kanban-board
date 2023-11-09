@@ -1,0 +1,83 @@
+
+.popUp-viewTask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.popUpContent-viewTask {    
+    position: relative;
+    background-color: #fff; 
+    height: 37vh;
+    width: 30vw;
+    border-radius: 10px;
+}
+
+.btnClose-task {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: solid 2px transparent;
+    transition: all 0.2s;
+    color: white;
+    background-color: rgb(207, 30, 30);
+}
+
+.btn-close-viewTask:hover {
+    background-color: rgb(167, 21, 21);
+    border: solid 2px rgb(184, 25, 25);
+}
+  
+.taskForm-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.taskForm-task input {
+    margin-top: 40px;
+    width: 400px;  
+    border: solid 2px #888888;
+}
+
+.taskForm-task input:hover {
+    background-color: white;
+    border: solid 2px #888888;  
+}
+
+.taskForm-task textarea {
+    resize: none;
+    outline: none;
+    
+    width: 400px;
+    height: 100px;
+    border: solid 2px #888888;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.taskForm-task select {
+    outline: none;
+    cursor: pointer;
+    
+    font-weight: 600;
+    width: 400px;
+    height: 40px;
+    padding-left: 10px;
+    border: solid 2px #888888;
+    border-radius: 6px;
+}
