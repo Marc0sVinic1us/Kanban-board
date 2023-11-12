@@ -32,9 +32,22 @@ function Home() {
                 Authorization: "Bearer " + token
             }
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                if (response.status === 401) {
+                    window.location.href = "/";
+
+                } else {
+
+                    console.error("Error: " + response.status);
+                }
+            } else {
+                
+                return response.json();
+            }
+        })
         .then(data => {
-    
+
             setTaskCards(data);
         
         })
@@ -85,9 +98,9 @@ function Home() {
                 <ContainerViewCard 
                     setTrigger={setPopupTask}
                     taskData={taskDataView}
+                    refreshTasks={handleRefresh}
                 /> 
             : ""}
-
 
             <div className="home-container">
 

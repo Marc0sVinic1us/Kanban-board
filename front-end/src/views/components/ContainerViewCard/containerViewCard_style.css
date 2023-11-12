@@ -15,12 +15,12 @@
 .popUpContent-viewTask {    
     position: relative;
     background-color: #fff; 
-    height: 37vh;
-    width: 30vw;
+    height: 33vh;
+    width: 30%;
     border-radius: 10px;
 }
 
-.btnClose-task {
+.btnClose-viewTask {
     height: 30px;
     width: 30px;
     border-radius: 5px;
@@ -35,49 +35,105 @@
     background-color: rgb(207, 30, 30);
 }
 
-.btn-close-viewTask:hover {
+.btnClose-viewTask:hover {
     background-color: rgb(167, 21, 21);
     border: solid 2px rgb(184, 25, 25);
 }
+
+/* .taskCard-menu {
+    height: 30px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.taskCard-menu:hover {
+    background-color: rgba(226, 223, 223, 0.533)
+} */
+
+.deleteTask-icon {
+    height: 30px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.deleteTask-icon:hover {
+    background-color: rgb(230, 17, 17);
+}
   
-.taskForm-task {
+.viewTaskForm-fields {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 25px;
 }
 
-.taskForm-task input {
-    margin-top: 40px;
-    width: 400px;  
-    border: solid 2px #888888;
+.taskForm-viewTask input {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: 40px;
+    font-size: 20px;
+    width: 65%;
+    border: solid 2px rgb(235, 232, 232);
 }
 
-.taskForm-task input:hover {
+.taskForm-viewTask input:hover {
     background-color: white;
-    border: solid 2px #888888;  
 }
 
-.taskForm-task textarea {
+.taskForm-viewTask textarea {
     resize: none;
     outline: none;
     
-    width: 400px;
+    width: 65%;
     height: 100px;
-    border: solid 2px #888888;
+    border: solid 2px rgb(235, 232, 232);
     border-radius: 10px;
     padding: 10px;
 }
 
-.taskForm-task select {
+.taskForm-viewTask select {
     outline: none;
     cursor: pointer;
     
     font-weight: 600;
-    width: 400px;
+    width: 65%;
     height: 40px;
     padding-left: 10px;
-    border: solid 2px #888888;
+    border: solid 2px rgb(235, 232, 232);
     border-radius: 6px;
+}
+
+.editTask-img {
+    float: right;
+    cursor: pointer;
+    
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px transparent;
+    transition: all 0.2s;
+    
+    background-color: rgb(67, 167, 197);
+}
+
+.editTask-img:hover {
+    background-color: rgb(62, 147, 173);
+    border: solid 2px rgb(71, 164, 192);
+    padding: 0;
+}
+
+.taskForm-viewTask button {
+    border: 0px transparent;
+    float: right;
+    margin-right: 30px;
+    margin-top: 6px;
 }

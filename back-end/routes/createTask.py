@@ -19,7 +19,7 @@ def createTask():
                         taskpriority=taskPriority
                 )
         
-    status = new_task.send_to_db()
+    status = new_task.send_to_db('create')
     
     return status
 

@@ -24,23 +24,68 @@ class NewTask(db.Model):
     def __repr__(self):
         return f"{self.taskName}"
     
-    def send_to_db(self):
+    def send_to_db(self, flag):
         db.session.add(self)
 
-        try:
-            # Commit para salvar a instância no banco de dados
-            db.session.commit()
-            print("-> NOVA TAREFA CRIADA")
+        if flag == 'update':
+            
+            try:
+                # Commit para salvar as alterações no banco de dados
+                db.session.commit()
+                print("-> TAREFA ATUALIZADA")
 
-            return {
-                    'status': True,
-                    'message': 'Tarefa criada com sucesso!'
-                    }
+                return {
+                        'status': True,
+                        'message': 'Tarefa atualizada com sucesso!'
+                        }
 
-        except:
-            # Em caso de erro, faça rollback
-            db.session.rollback()
-            return {
-                    'status': False, 
-                    'message': 'Falha na criação da tarefa, favor tentar novamente'
-                    }
+            except:
+                # Em caso de erro, faça rollback
+                db.session.rollback()
+                return {
+                        'status': False, 
+                        'message': 'Falha na atualização da tarefa, favor tentar novamente'
+                        }
+        
+        elif flag == 'create':
+
+            try:
+                # Commit para salvar as alterações no banco de dados
+                db.session.commit()
+                print("-> NOVA TAREFA CRIADA")
+
+                return {
+                        'status': True,
+                        'message': 'Tarefa criada com sucesso!'
+                        }
+
+            except:
+                # Em caso de erro, faça rollback
+                db.session.rollback()
+                return {
+                        'status': False, 
+                        'message': 'Falha na criação da tarefa, favor tentar novamente'
+                        }
+            
+        elif flag == 'delete':
+        
+            try:
+                db.session.delete(self)
+                
+                # Commit para salvar as alterações no banco de dados
+                db.session.commit()
+                
+                print("-> TAREFA EXCLUIDA")
+
+                return {
+                        'status': True,
+                        'message': 'Tarefa excluida com sucesso!'
+                        }
+
+            except:
+                # Em caso de erro, faça rollback
+                db.session.rollback()
+                return {
+                        'status': False, 
+                        'message': 'Falha na exclusão da tarefa, favor tentar novamente'
+                        }
