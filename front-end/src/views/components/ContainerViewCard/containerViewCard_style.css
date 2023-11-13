@@ -15,7 +15,9 @@
 .popUpContent-viewTask {    
     position: relative;
     background-color: #fff; 
-    height: 33vh;
+    /* height: 33vh; */
+    height: auto;
+    padding-bottom: 15px;
     width: 30%;
     border-radius: 10px;
 }
@@ -76,11 +78,14 @@
     gap: 10px;
 }
 
-.taskForm-viewTask input {
+.taskName-textarea {
+    resize: none;
+    overflow-y: hidden;
     margin-top: 15px;
     margin-bottom: 20px;
-    height: 40px;
-    font-size: 20px;
+    height: auto;
+    font-size: 18px;
+    font-weight: bold;
     width: 65%;
     border: solid 2px rgb(235, 232, 232);
 }

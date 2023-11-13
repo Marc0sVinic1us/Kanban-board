@@ -35,6 +35,7 @@ function Home() {
         .then(response => {
             if (!response.ok) {
                 if (response.status === 401) {
+                    alert("Sessão expirada, favor se autenticar novamente")
                     window.location.href = "/";
 
                 } else {

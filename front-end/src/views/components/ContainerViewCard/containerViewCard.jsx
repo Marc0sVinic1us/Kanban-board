@@ -37,21 +37,36 @@ function ContainerViewCard(props) {
                 Authorization: "Bearer " + token
             }
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                if (response.status === 401) {
+                    alert("Sessão expirada, favor se autenticar novamente");
+                    window.location.href = "/";
+
+                } else {
+
+                    console.error("Error: " + response.status);
+                }
+            } else {
+                
+                return response.json();
+            }
+        })
         .then(data => {
-            
-            alert(data.message);        
             
             if (data.status) {
                 props.setTrigger(false);
                 props.refreshTasks();
+                
+                setTaskName("");
+                setTaskDescription("");
+                setTaskPriority("");    
+            
+            } else {
+                alert(data.message);
             }
         })
         .catch(err => console.error(err))
-            
-        setTaskName("");
-        setTaskDescription("");
-        setTaskPriority("");
     }
 
     const handleDeleteTask = (e) => {
@@ -71,6 +86,7 @@ function ContainerViewCard(props) {
         .then(response => {
             if (!response.ok) {
                 if (response.status === 401) {
+                    alert("Sessão expirada, favor se autenticar novamente");
                     window.location.href = "/";
 
                 } else {
@@ -83,19 +99,20 @@ function ContainerViewCard(props) {
             }
         })
         .then(data => {
-            
-            alert(data.message);        
-            
+                        
             if (data.status) {
                 props.setTrigger(false);
                 props.refreshTasks();
+
+                setTaskName("");
+                setTaskDescription("");
+                setTaskPriority("");
+
+            } else {
+                alert(data.message);
             }
         })
         .catch(err => console.error(err))
-            
-        setTaskName("");
-        setTaskDescription("");
-        setTaskPriority("");
     }
 
     let priorityColor = 'solid 2px ';
@@ -124,6 +141,11 @@ function ContainerViewCard(props) {
         // }
     // }
 
+    const adjustTextareaHeight = (event) => {
+        event.target.style.height = 'auto';
+        event.target.style.height = (event.target.scrollHeight) + 'px';
+    };
+
     return (
         <div className='popUp-viewTask'>
             <div className='popUpContent-viewTask'>
@@ -151,13 +173,14 @@ function ContainerViewCard(props) {
 
                     <div className="viewTaskForm-fields">
                         
-                        <input 
-                            required
-                            type="text" 
-                            value={taskName} 
-                            onChange={(e) => setTaskName(e.target.value)} 
+                        <textarea 
+                            name="taskName" 
+                            className='taskName-textarea'
+                            rows="1"
+                            onChange={(e) => setTaskName(e.target.value)}
                             placeholder='Nome da tarefa'
-                            />
+                            onInput={adjustTextareaHeight}
+                        >{taskName}</textarea>
                         
                         <textarea 
                             name="description" 

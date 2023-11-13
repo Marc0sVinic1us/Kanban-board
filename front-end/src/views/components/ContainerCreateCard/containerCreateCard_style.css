@@ -15,8 +15,9 @@
 .popUpContent-createTask {
     position: relative;
     background-color: #fff; 
-    height: 36vh;
+    height: auto;
     width: 25%;
+    padding-bottom: 15px;
     border-radius: 10px;
 }
 
@@ -53,13 +54,15 @@
     margin-top: 25px;
 }
 
-.taskForm-createTask input {
-    width: 80%;
-    border: solid 2px rgb(235, 232, 232);
-}
-
-.taskForm-createTask input:hover {
-    background-color: white;
+.taskName-textarea {
+    resize: none;
+    overflow-y: hidden;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: auto;
+    font-size: 18px;
+    font-weight: bold;
+    width: 65%;
     border: solid 2px rgb(235, 232, 232);
 }
 

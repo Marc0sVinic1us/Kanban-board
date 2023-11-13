@@ -32,7 +32,9 @@ function TaskCard(props) {
 
     return (
         <div className="task-card" onClick={handleClick} style={{border: priorityColor}}>
-            <strong>{props.taskName}</strong>
+            {/* <strong>{props.taskName}</strong> */}
+            <p>{props.taskName}</p>
+            {/* <textarea name="taskname" id="taskname-textarea" cols="10" rows="10">{props.taskname}</textarea> */}
             <small>{props.taskDescription}</small>    
         </div>
     )

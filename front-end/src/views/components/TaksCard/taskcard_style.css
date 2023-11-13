@@ -7,18 +7,22 @@
     background-color: white;
     margin-top: 2%;
     width: 95%;
-    height: 75px;
+    height: auto;
+    padding-bottom: 10px;
     padding-left: 20px;
     border-radius: 6px;
     box-shadow: 3px 3px 10px #888888;
   }
   
-  .task-card strong {
+  .task-card p {
+    font-weight: bold;
+    word-wrap: break-word;
     padding-top: 10px;
-    max-width: 245px;
-    white-space: nowrap;
+    max-width: 290px;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: black;
+    border: none;
   }
 
   .task-card small {
