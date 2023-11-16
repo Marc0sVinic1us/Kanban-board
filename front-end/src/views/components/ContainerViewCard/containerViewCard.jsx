@@ -1,23 +1,23 @@
 
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 
 import "./containerViewCard_style.css"
 import submitIcon from "../../../img/submit-icon.png";
 import trashIcon from "../../../img/trash-icon.png"
+import BooleanPopUp from '../BooleanPopUp/booleanPopUp.jsx';
 
 // import menuDotsIcon from "../../../img/menuDots-icon.png"
 // import TaskCardNavbar from '../TaskCardNavbar/taskCardNavbar.jsx';
-// import BooleanPopUp from '../BooleanPopUp/booleanPopUp.jsx';
 
 function ContainerViewCard(props) {
 
     const [taskName, setTaskName] = useState(props.taskData.taskName);
     const [taskDescription, setTaskDescription] = useState(props.taskData.taskDescription);
     const [taskPriority, setTaskPriority] = useState(props.taskData.taskPriority);
-    // const [confirmationDelete, setConfirmationDelete] = useState(false);
+    const [confirmationDelete, setConfirmationDelete] = useState(false);
+    const [confirmationClose, setConfirmationClose] = useState(false);
 
     const token = sessionStorage.getItem("token")
-    // const userID = sessionStorage.getItem("userID");
     
     if (token === undefined || token === null) {
         window.location.href = "/";
@@ -69,8 +69,7 @@ function ContainerViewCard(props) {
         .catch(err => console.error(err))
     }
 
-    const handleDeleteTask = (e) => {
-        e.preventDefault()
+    const handleDeleteTask = () => {
 
         const formdata = new FormData();
         formdata.append("userTask", [props.taskData.taskKey]);
@@ -115,72 +114,79 @@ function ContainerViewCard(props) {
         .catch(err => console.error(err))
     }
 
+    
     let priorityColor = 'solid 2px ';
-    
-    if (Number(taskPriority) === 1) {
-        priorityColor += 'red'
-    
-    } else if (Number(taskPriority) === 2) {
-        priorityColor += 'orange';
-    
-    } else if (Number(taskPriority) === 3) {
-        priorityColor += 'gold';
-    
-    } else if (Number(taskPriority) === 4) {
-        priorityColor += 'lightgreen';
-    } else {
-        priorityColor += 'rgb(235, 232, 232)'
+    if (Number(taskPriority) === 1) priorityColor += 'red'
+    else if (Number(taskPriority) === 2) priorityColor += 'orange';
+    else if (Number(taskPriority) === 3) priorityColor += 'gold';
+    else if (Number(taskPriority) === 4) priorityColor += 'lightgreen';
+    else priorityColor += 'rgb(235, 232, 232)'
+
+    const handleAnswer = (answer) => {
+
+        if (confirmationDelete) {
+            if (answer) {
+                handleDeleteTask()
+            }
+        
+        } else if (confirmationClose) {
+            if (answer)
+                props.setTrigger(false)
+        }
     }
 
-    // const handleAnswer = (answer) => {
-        // if (answer) {
-        //     // handleDeleteTask()
-        //     console.log("Sim")
-        // } else {
-        //     console.log("Não")
-        // }
-    // }
-
-    const adjustTextareaHeight = (event) => {
-        event.target.style.height = 'auto';
-        event.target.style.height = (event.target.scrollHeight) + 'px';
+    const adjustTextareaHeight = () => {
+        const textarea = document.querySelector('.taskName-textarea');
+        textarea.style.height = 'auto';
+        textarea.style.height = `${textarea.scrollHeight}px`;
     };
+
+    useEffect(() => {
+        adjustTextareaHeight();
+    }, [taskName]);
+
+
+    const verifyChanges = () => {
+        if (props.taskData.taskName !== taskName || props.taskData.taskDescription !== taskDescription || Number(props.taskData.taskPriority) !== Number(taskPriority))
+            setConfirmationClose(true)
+        else
+            props.setTrigger(false)
+    }
 
     return (
         <div className='popUp-viewTask'>
             <div className='popUpContent-viewTask'>
                 
-                <button className='btnClose-viewTask' title='Fechar painel' onClick={() => props.setTrigger(false)}>X</button>
+                <button className='btnClose-viewTask' title='Fechar painel' onClick={() => verifyChanges()}>X</button>
 
                 {/* <img src={menuDotsIcon} className='taskCard-menu' alt="More actions icon" />
 
                 <TaskCardNavbar /> */}
 
-                {/* {confirmationDelete ? (
-                        <BooleanPopUp 
-                        message={"Tem certeza?"}
+                {confirmationDelete || confirmationClose ? (
+                    <BooleanPopUp 
+                        message={confirmationDelete ? "Tem certeza que deseja deletar essa tarefa?": "O trecho editado não será salvo, tem certeza que deseja fechar?"}
                         trueBtn={"Sim"}
                         falseBtn={"Não"}
                         setAnswer={handleAnswer}
-                        // setTrigger={setConfirmat1ionDelete}
-                        />
-                    ) : ""} 
-                */}
-                
-                <img src={trashIcon} onClick={handleDeleteTask} className='deleteTask-icon' alt="Delete task" />
+                        setTrigger={confirmationDelete ? setConfirmationDelete : setConfirmationClose}
+                    />
+                ) : ""} 
+               
+                <img src={trashIcon} onClick={() => setConfirmationDelete(true)} className='deleteTask-icon' alt="Delete task" />
                     
                 <form className='taskForm-viewTask' onSubmit={handleEditTask}>
 
                     <div className="viewTaskForm-fields">
-                        
-                        <textarea 
-                            name="taskName" 
+
+                        <textarea
+                            name="taskName"
                             className='taskName-textarea'
                             rows="1"
+                            value={taskName}
                             onChange={(e) => setTaskName(e.target.value)}
                             placeholder='Nome da tarefa'
-                            onInput={adjustTextareaHeight}
-                        >{taskName}</textarea>
+                        />
                         
                         <textarea 
                             name="description" 

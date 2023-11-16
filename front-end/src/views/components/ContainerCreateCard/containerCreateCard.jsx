@@ -1,5 +1,5 @@
 
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 
 import "./containerCreateCard_style.css"
 import submitIcon from "../../../img/submit-icon.png"
@@ -80,10 +80,15 @@ function ContainerCreateCard(props) {
         priorityColor += 'rgb(235, 232, 232)'
     }
 
-    const adjustTextareaHeight = (event) => {
-        event.target.style.height = 'auto';
-        event.target.style.height = (event.target.scrollHeight) + 'px';
+    const adjustTextareaHeight = () => {
+        const textarea = document.querySelector('.taskName-textarea');
+        textarea.style.height = 'auto';
+        textarea.style.height = `${textarea.scrollHeight}px`;
     };
+
+    useEffect(() => {
+        adjustTextareaHeight();
+    }, [taskName]);
 
     return (
         <div className='popUp-createTask'>
@@ -97,21 +102,14 @@ function ContainerCreateCard(props) {
 
                     <div className="CreateTaskForm-fields">
 
-                        {/* <input 
-                            required
-                            type="text" 
-                            value={taskName} 
-                            onChange={(e) => setTaskName(e.target.value)} 
-                            placeholder='Nome da tarefa'
-                        /> */}
                         <textarea 
                             name="taskName" 
                             className='taskName-textarea'
                             rows="1"
                             onChange={(e) => setTaskName(e.target.value)}
                             placeholder='Nome da tarefa'
-                            onInput={adjustTextareaHeight}
-                        >{taskName}</textarea>
+                            value={taskName}
+                        />
                         
                         <textarea 
                             name="description" 

@@ -17,7 +17,7 @@
     background-color: #fff; 
     /* height: 33vh; */
     height: auto;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     width: 30%;
     border-radius: 10px;
 }
@@ -97,9 +97,9 @@
 .taskForm-viewTask textarea {
     resize: none;
     outline: none;
+    height: 100px;
     
     width: 65%;
-    height: 100px;
     border: solid 2px rgb(235, 232, 232);
     border-radius: 10px;
     padding: 10px;
@@ -139,6 +139,6 @@
 .taskForm-viewTask button {
     border: 0px transparent;
     float: right;
-    margin-right: 30px;
+    margin-right: 10px;
     margin-top: 6px;
 }

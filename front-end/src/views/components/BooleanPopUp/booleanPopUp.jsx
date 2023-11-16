@@ -5,16 +5,12 @@ function booleanPopUp(props) {
 
     const handleAnswer = (answer) => {
     
-        if (answer) {
-            // props.setAnswer(true)
-            
+        if (answer)
+            props.setAnswer(true)   
+        else
+            props.setAnswer(false)
         
-        } else {
-            // props.setAnswer(false)
-            // console.log("Não")
-        }
-
-        // props.setTrigger(false)
+        props.setTrigger(false)
     }
 
     return (
@@ -22,11 +18,11 @@ function booleanPopUp(props) {
         <div className="pop-up">
             <div className="popup-content">
             
-                <p>{props.message}</p>
+                <strong>{props.message}</strong>
 
                 <div className="painel-btns">
-                    <button onClick={console.log("Sim")}>{props.trueBtn}</button>
-                    <button onClick={console.log("Não")}>{props.falseBtn}</button>
+                    <button onClick={() => {handleAnswer(true)}}>{props.trueBtn}</button>
+                    <button onClick={() => {handleAnswer(false)}}>{props.falseBtn}</button>  
                 </div>
             
             
