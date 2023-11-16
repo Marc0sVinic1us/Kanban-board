@@ -1,10 +1,18 @@
 
+.body-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .singUp-title{
     margin-top: 5vh;
     font-size: 35px;
     height: 30px;
-    margin-left: 16vw;
+    padding-right: 5%;
+    text-align: center;
 }
 
 .singUp-labels {
@@ -53,11 +61,12 @@ input[type="date"] {
 
 .register-container {
     line-height: 10px;
-    height: 85vh;
+    height: auto;
     width: 45vw;
     border-radius: 20px;  
-    margin-top: 8vh;
+    margin-top: 6vh;
     padding-top: 1vh;
+    padding-bottom: 3vh;
   
     color: rgb(82, 80, 80);
     background-color: rgba(252, 252, 252, 0.781);

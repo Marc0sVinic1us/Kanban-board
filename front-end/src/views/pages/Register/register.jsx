@@ -14,40 +14,48 @@ function Register() {
     const [ dateBirth, setDateBirth ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ confirmedPassword, setConfirmedPassword ] = useState("");
+    const [ resultRegex, setResultRegex ] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (password === confirmedPassword) {
-            
-            const formData = new FormData();
-            formData.append('user_singUp', [name, email, dateBirth, password]);
-            
-            fetch('http://localhost:5000/singUp', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
 
-                if (data.status) {
-                    setName("")
-                    setEmail("")
-                    setDateBirth("")
-                    setPassword("")
-                    setConfirmedPassword("")
+            if (resultRegex) {
 
-                    alert(data.message);
-
-                    // Redireciona o usuário para a tela de login
-                    window.location.replace("/")
-                } else {
-                    alert(data.message)
-                }
+                const formData = new FormData();
+                formData.append('user_singUp', [name, email, dateBirth, password]);
+                
+                fetch('http://localhost:5000/singUp', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
                     
-            })
-            .catch(err => console.error(err));
+                    if (data.status) {
+                        setName("")
+                        setEmail("")
+                        setDateBirth("")
+                        setPassword("")
+                        setConfirmedPassword("")
+                        
+                        alert(data.message);
+                        
+                        // Redireciona o usuário para a tela de login
+                        window.location.replace("/")
+                    } else {
+                        alert(data.message)
+                    }
+                    
+                })
+                .catch(err => console.error(err));
             
+            } else {
+                alert("Senha fraca! \nFavor verificar critérios de senha");
+                setPassword("")
+                setConfirmedPassword("")
+            }
             
         } else {
             
@@ -106,6 +114,8 @@ function Register() {
                             id={'password_input'}
                             state={password}
                             onChange={setPassword}
+                            showRegexError={true}
+                            setResultRegex={setResultRegex}
                             />
 
                         <label className="singUp-labels">* Confirmar Senha:</label>
@@ -113,6 +123,8 @@ function Register() {
                             id={'confirmPassword_input'}
                             state={confirmedPassword}
                             onChange={setConfirmedPassword}
+                            showRegexError={false}
+                            setResultRegex={setResultRegex}
                             />
                         
                     </div>

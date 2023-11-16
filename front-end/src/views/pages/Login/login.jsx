@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import  { React, useState } from "react"
 
 import './login_style.css';
 import "../../../styles/global.css"
@@ -70,6 +70,7 @@ function Login() {
             <PasswordInput 
               state={password}
               onChange={setPassword}
+              showRegexError={false}
               />
           
           </div>

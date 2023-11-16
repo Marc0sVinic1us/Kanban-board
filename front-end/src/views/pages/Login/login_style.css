@@ -42,11 +42,12 @@ a:hover {
 
 .login-container {
   line-height: 10px;
-  height: 52vh;
+  height: auto;
   width: 40vw;
   border-radius: 20px;  
   margin-top: 16vh;
   padding-top: 1px;
+  padding-bottom: 3vh;
   
   color: rgb(82, 80, 80);
   background-color: rgba(252, 252, 252, 0.781);
