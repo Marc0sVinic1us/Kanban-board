@@ -1,0 +1,84 @@
+
+.home-container {
+  height: 80vh;
+  width: 80vw;
+  border-radius: 20px;  
+  margin-top: 15vh;
+  padding-top: 1px;
+  
+  color: rgb(82, 80, 80);
+  background-color: rgba(252, 252, 252, 0.781);
+
+}
+
+.btn-createTask {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    font-size: 25px;
+    
+    margin-left: 20px;
+    margin-top: 20px;
+    border: solid 2px transparent;
+    transition: all 0.2s;
+    color: white;
+    background-color: rgb(67, 167, 197);
+}
+
+.btn-createTask:hover {
+    background-color: rgb(62, 147, 173);
+    border: solid 2px rgb(71, 164, 192);
+}
+
+.boards {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.boards aside {
+  background-color: transparent;
+  width: 18vw;
+  height: 60vh;
+}
+
+.boards aside h3 {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.boards aside section {
+  display: flex;
+  overflow: auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  border: solid 1px rgb(62, 147, 173);
+  
+  border-radius: 5px;
+  height: 100%;
+} 
+
+/* Estilo da barra de rolagem */
+.boards aside section::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Estilo da scrollbar */
+.boards aside section::-webkit-scrollbar-thumb {
+  background-color: #0861af;
+  border-radius: 10px;
+}
+
+/* Estilo do trilho da scrollbar */
+.boards aside section::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 20px;
+}
+
+
+
+

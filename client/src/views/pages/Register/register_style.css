@@ -1,0 +1,147 @@
+
+.body-container {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.singUp-title{
+    margin-top: 5vh;
+    font-size: 35px;
+    height: 30px;
+    padding-right: 5%;
+    text-align: center;
+}
+
+.singUp-labels {
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input {
+    text-align: start;
+    height: 40px;
+    width: 350px;
+    border: solid 2px transparent;
+    border-radius: 8px;
+    transition: all, 0.2s;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+input:hover {
+    background-color: rgba(240, 239, 239, 0.911);
+    border: solid 2px rgb(207, 207, 207);
+}
+
+input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.returnPage-img {
+    width: 50px;
+    float: left;
+    padding: 5px;
+    border-radius: 10px;
+    border: solid 2px transparent;
+    margin-top: 25px;
+    margin-left: 25px;
+    transition: all, 0.2s;
+}
+
+.returnPage-img:hover {
+    background-color: rgb(62, 147, 173);
+    border: solid 2px rgb(71, 164, 192);
+}
+
+.register-container {
+    line-height: 10px;
+    height: auto;
+    width: 45vw;
+    border-radius: 20px;  
+    margin-top: 6vh;
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+  
+    color: rgb(82, 80, 80);
+    background-color: rgba(252, 252, 252, 0.781);
+}
+
+.inputs {
+    margin-top: 25px;
+    margin-left: 13.5vw;
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+}
+
+.singUp-form form {
+    display: flex;
+    justify-content: center;
+    margin-top: 2   0px;
+    flex-direction: column;
+    line-height: 18px;
+    
+}
+
+.bnt-singUp {
+    height: 55px;
+    width: 420px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 60px;
+    border: solid 2px transparent;
+    transition: all 0.2s;
+    background-color: rgb(67, 167, 197);
+}
+
+.bnt-singUp:hover {
+    background-color: rgb(62, 147, 173);
+    border: solid 2px rgb(71, 164, 192);
+  }
+
+.singUp-password-container {
+    display: flex;
+    align-items: center;  
+    
+    height: 40px;
+    width: 350px;
+    padding: 0px;
+    border-radius: 8px;   
+    gap: 4px;
+    border: solid 2px transparent;
+    
+    transition: all, 0.2s;
+    background-color: white;
+}
+
+.eye-icon {
+    height: 25px; 
+    border: solid 2px transparent;
+    border-radius: 10px;
+    transition: all, 0.2s;
+    padding: 2px;
+  }
+  
+.eye-icon:hover {
+    background-color: rgba(240, 239, 239, 0.911);
+    border: solid 2px rgb(207, 207, 207);
+    cursor: pointer;
+}
+
+.container-btnSingUp {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.link-loginPage {
+    height: 55px;
+    width: 420px;
+    border-radius: 10px;
+}

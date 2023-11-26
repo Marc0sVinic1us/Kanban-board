@@ -1,0 +1,123 @@
+
+.popUp-createTask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.popUpContent-createTask {
+    position: relative;
+    background-color: #fff; 
+    height: auto;
+    width: 25%;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+.popUpContent-createTask h2 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.btnClose-createTask {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    font-size: 15px;
+    
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: solid 2px transparent;
+    transition: all 0.2s;
+    color: white;
+    background-color: rgb(207, 30, 30);
+}
+
+.btnClose-createTask:hover {
+    background-color: rgb(167, 21, 21);
+    border: solid 2px rgb(184, 25, 25);
+}
+  
+.CreateTaskForm-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.taskName-textarea {
+    resize: none;
+    overflow-y: hidden;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    height: auto;
+    font-size: 18px;
+    font-weight: bold;
+    width: 65%;
+    border: solid 2px rgb(235, 232, 232);
+}
+
+.taskForm-createTask textarea {
+    resize: none;
+    outline: none;
+    
+    height: 100px;
+    width: 80%;
+    border: solid 2px rgb(235, 232, 232);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.taskForm-createTask select {
+    outline: none;
+    cursor: pointer;
+    
+    font-weight: 600;
+    width: 80%;
+    height: 40px;
+    padding-left: 10px;
+    border: solid 2px rgb(235, 232, 232);
+    border-radius: 6px;
+    margin-bottom: 6px;
+}
+
+.container-btnCreate {
+    text-align: center;
+}
+
+.createTask-img {
+    float: right;
+    cursor: pointer;
+    
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px;
+    border: 2px transparent;
+    transition: all 0.2s;
+    
+    background-color: rgb(67, 167, 197);
+}
+
+.createTask-img:hover {
+    background-color: rgb(62, 147, 173);
+    border: solid 2px rgb(71, 164, 192);
+    padding: 0;
+}
+
+.taskForm-createTask button {
+    border: 0px transparent;
+    background-color: transparent;
+    z-index: 10;
+    float: right;
+    margin-right: 10px;
+    margin-top: 6px;
+}
