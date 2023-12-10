@@ -88,7 +88,7 @@ function Register() {
                         <input 
                             type="text"
                             id="userFullName"
-                            className="name_input"
+                            className="form-input"
                             onChange={(e) => setName(e.target.value)}
                             value={name}
                             required
@@ -97,7 +97,7 @@ function Register() {
                         <input 
                             type="email"
                             id="userEmail"
-                            className="email_input"
+                            className="form-input"
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             required
@@ -106,7 +106,7 @@ function Register() {
                         <input 
                             type="date"
                             id="userDateBirth"
-                            className="dateBirth_input"
+                            className="form-input"
                             onChange={(e) => setDateBirth(e.target.value)}
                             value={dateBirth}
                             />

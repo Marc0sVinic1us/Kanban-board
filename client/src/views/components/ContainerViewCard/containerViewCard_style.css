@@ -18,7 +18,8 @@
     /* height: 33vh; */
     height: auto;
     padding-bottom: 10px;
-    width: 30%;
+    width: 90%;
+    max-width: 400px;
     border-radius: 10px;
 }
 

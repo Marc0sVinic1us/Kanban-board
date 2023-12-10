@@ -100,7 +100,6 @@ a:hover {
 }
 
 .username_input:hover {
-  background-color: rgba(240, 239, 239, 0.911);
   border: solid 2px rgb(207, 207, 207);
 }
 

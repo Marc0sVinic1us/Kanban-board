@@ -27,7 +27,7 @@
     font-weight: bold;
 }
 
-input {
+.form-input {
     text-align: start;
     height: 40px;
     width: 100%;
@@ -38,12 +38,11 @@ input {
     background-color: rgb(255, 255, 255);
 }
 
-input:hover {
-    background-color: rgba(240, 239, 239, 0.911);
+.form-input:hover {
     border: solid 2px rgb(207, 207, 207);
 }
 
-input[type="date"] {
+.input[type="date"] {
     padding: 10px;
     font-size: 16px;
 }
@@ -69,7 +68,7 @@ input[type="date"] {
     width: 90%;
     max-width: 600px;
     border-radius: 20px;  
-    margin-top: 6vh;
+    margin-top: 4vh;
     padding-top: 1vh;
     padding-bottom: 3vh;
   
@@ -80,7 +79,6 @@ input[type="date"] {
 .inputs {
     width: 70%;
     max-width: 350px;
-    margin-top: 25px;
     display: flex;
     flex-direction: column;
     line-height: 20px;
@@ -90,7 +88,6 @@ input[type="date"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
     flex-direction: column;
     line-height: 18px;
     
@@ -102,7 +99,7 @@ input[type="date"] {
     max-width: 320px;
     border-radius: 10px;
     font-size: 18px;
-    margin-top: 60px;
+    margin-top: 40px;
     border: solid 2px transparent;
     transition: all 0.2s;
     background-color: rgb(67, 167, 197);

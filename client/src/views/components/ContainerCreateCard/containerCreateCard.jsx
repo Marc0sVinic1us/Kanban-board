@@ -4,11 +4,14 @@ import { React, useState, useEffect } from 'react';
 import "./containerCreateCard_style.css"
 import submitIcon from "../../../assets/svg/send-icon.svg";
 
+import BooleanPopUp from '../BooleanPopUp/booleanPopUp';
+
 function ContainerCreateCard(props) {
 
-    const [taskName, setTaskName] = useState("");
-    const [taskDescription, setTaskDescription] = useState("");
-    const [taskPriority, setTaskPriority] = useState("")
+    const [ taskName, setTaskName ] = useState("");
+    const [ taskDescription, setTaskDescription ] = useState("");
+    const [ taskPriority, setTaskPriority ] = useState("")
+    const [ confirmationClose, setConfirmationClose ] = useState(false)
 
     const token = sessionStorage.getItem("token")
     const userID = sessionStorage.getItem("userID");
@@ -90,13 +93,40 @@ function ContainerCreateCard(props) {
         adjustTextareaHeight();
     }, [taskName]);
 
+    const handleAnswer = (answer) => {
+        
+        if (confirmationClose) {
+            if (answer)
+                props.setTrigger(false)
+        } 
+    }
+
+    const handleConfirmationClose = () => {
+
+        if (taskName !== "" || taskDescription !== "" || taskPriority !== "") {
+            setConfirmationClose(true);
+        } else {
+            props.setTrigger(false)
+        }
+    }
+
     return (
         <div className='popUp-createTask'>
             <div className='popUpContent-createTask'>
                 
-                <button className='btnClose-createTask' title='Fechar painel' onSubmit={handleCreateTask} onClick={() => props.setTrigger(false)}>X</button>
+                <button className='btnClose-createTask' title='Fechar painel' onClick={handleConfirmationClose}>X</button>
                 
                 <h2>Nova tarefa</h2>
+
+                {confirmationClose ? (
+                    <BooleanPopUp 
+                        message={"As alterações feitas não serão salvas, tem certeza que deseja fechar?"}
+                        trueBtn={"Sim"}
+                        falseBtn={"Não"}
+                        setAnswer={handleAnswer}
+                        setTrigger={setConfirmationClose}
+                    />
+                ) : ""} 
                     
                 <form className='taskForm-createTask' onSubmit={handleCreateTask}>
 

@@ -20,7 +20,8 @@
   position: relative;
   background-color: #ffffff; 
   height: auto;
-  width: 20vw;
+  width: 85%;
+  max-width: 300px;
   padding: 1%;
   padding-bottom: 3vh;
   border-radius: 10px;
@@ -37,7 +38,7 @@
   cursor: pointer;
   
   height: 30px;
-  width: 130px;
+  width: 115px;
   border-radius: 10px;
   border: 2px transparent;
   transition: all 0.2s;
