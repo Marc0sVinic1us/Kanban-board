@@ -2,8 +2,8 @@
 import { React, useState, useEffect } from 'react';
 
 import "./containerViewCard_style.css"
-import submitIcon from "../../../img/submit-icon.png";
-import trashIcon from "../../../img/trash-icon.png"
+import submitIcon from "../../../assets/svg/send-icon.svg";
+import trashIcon from "../../../assets/svg/trash-icon.svg"
 import BooleanPopUp from '../BooleanPopUp/booleanPopUp.jsx';
 
 // import menuDotsIcon from "../../../img/menuDots-icon.png"

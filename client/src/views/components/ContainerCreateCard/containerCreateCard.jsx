@@ -2,7 +2,7 @@
 import { React, useState, useEffect } from 'react';
 
 import "./containerCreateCard_style.css"
-import submitIcon from "../../../img/submit-icon.png"
+import submitIcon from "../../../assets/svg/send-icon.svg";
 
 function ContainerCreateCard(props) {
 

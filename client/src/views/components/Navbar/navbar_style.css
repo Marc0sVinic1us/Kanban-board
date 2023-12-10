@@ -8,6 +8,7 @@
 
     height: 9vh;
     width: 100vw;
+    padding: 0 15px;
     color: white;
     background: linear-gradient(to right, rgb(6, 35, 116), rgb(19, 68, 158));
 
@@ -15,7 +16,6 @@
 
 .app-name {
     font-size: 23px;
-    margin-left: 50px;
 }
 
 .btn-logActions {
@@ -23,7 +23,6 @@
     width: 80px;
     border-radius: 10px;
     font-size: 15px;
-    margin-right: 50px;
     border: solid 2px transparent;
     transition: all 0.2s;
     color: white;

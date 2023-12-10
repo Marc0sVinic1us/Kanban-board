@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import eye_icon from "../../../img/eye-icon.png";
+
 import "./passwordInput_style.css";
+
+import eye_icon from "../../../assets/svg/eye-icon.svg";
+import hiddenEye_icon from "../../../assets/svg/hiddenEye-icon.svg";
 
 function PasswordInput({ id, state, onChange, showRegexError, setResultRegex }) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -44,7 +47,7 @@ function PasswordInput({ id, state, onChange, showRegexError, setResultRegex }) 
             />
         <img
             className="eye-icon"
-            src={eye_icon}
+            src={isPasswordVisible ? hiddenEye_icon : eye_icon}
             alt="eye-icon"
             onClick={handleTogglePassword}
             />

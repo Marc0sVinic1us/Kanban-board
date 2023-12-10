@@ -57,7 +57,7 @@
 } */
 
 .deleteTask-icon {
-    height: 30px;
+    height: 32px;
     float: left;
     margin-top: 10px;
     margin-left: 10px;
@@ -121,7 +121,7 @@
     float: right;
     cursor: pointer;
     
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     padding: 5px;
     border: 2px transparent;

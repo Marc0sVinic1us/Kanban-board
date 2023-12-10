@@ -3,7 +3,7 @@ import { React, useState } from "react";
 import "./register_style.css"
 import "../../../styles/global.css"
 
-import left_arrow from "../../../img/left-arrow.png"
+import left_arrow from "../../../assets/svg/backArrow-icon.svg"
 
 import PasswordInput from "../../components/PasswordInput/passwordInput.jsx";
 
@@ -78,7 +78,9 @@ function Register() {
                         />
                 </a>
                 
-                <h1 className="singUp-title">Fazer Cadastro</h1>
+                <div className="signUpTitle-container">
+                    <h1 className="singUp-title">Cadastrar</h1>
+                </div>
 
                 <form className="singUp-form" onSubmit={handleSubmit}>
                     <div className="inputs">
@@ -129,13 +131,11 @@ function Register() {
                         
                     </div>
 
-                    <div className="container-btnSingUp">
-                        <button 
-                            type="submit"
-                            className="bnt-singUp"
-                            >Cadastrar
-                        </button>
-                    </div>
+                    <button 
+                        type="submit"
+                        className="bnt-singUp"
+                        >Cadastrar
+                    </button>
                 
                 </form>
             </div>

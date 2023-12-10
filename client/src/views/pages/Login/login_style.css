@@ -16,12 +16,22 @@
   text-align: center;
 }
 
-.singIn-labels {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 16px;
-    font-weight: bold;
+.singIn-inputs {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  width: 75%;
+  max-width: 300px;
 }
+
+.singIn-labels {
+  margin-top: 20px;
+  margin-bottom: 10px; 
+  font-size: 16px;
+  text-align: left;
+  font-weight: bold;
+}
+
 
 a {
   text-decoration: none;
@@ -43,7 +53,8 @@ a:hover {
 .login-container {
   line-height: 10px;
   height: auto;
-  width: 40vw;
+  width: 90%;
+  max-width: 500px;
   border-radius: 20px;  
   margin-top: 16vh;
   padding-top: 1px;
@@ -53,15 +64,10 @@ a:hover {
   background-color: rgba(252, 252, 252, 0.781);
 }
 
-.singIn-inputs {
-  margin-left: 11vw;
-  display: flex;
-  flex-direction: column;
-}
-
 .singIn-form {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -85,62 +91,17 @@ a:hover {
 .username_input {
   text-align: start;
   height: 40px;
-  width: 350px;
+  width: 100%;
   padding: 10px;
   border: solid 2px transparent;
   border-radius: 8px;
   transition: all, 0.2s;
   background-color: rgb(255, 255, 255);
-}
-
-.password_input {
-  text-align: start;
-  border: solid 2px transparent;  
-  height: 40px;
-  width: 280px;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: all, 0.2s;
-  background-color: rgb(255, 255, 255);
-}
-
-.password-container {
-  display: flex;
-  align-items: center;  
-  
-  height: 40px;
-  width: 300px;
-  padding: 0px;
-  border-radius: 8px;   
-  gap: 4px;
-  border: solid 2px transparent;
-  
-  transition: all, 0.2s;
-  background-color: white;
-}
-
-.eye-icon {
-  height: 25px; 
-  border: solid 2px transparent;
-  border-radius: 10px;
-  transition: all, 0.2s;
-  padding: 2px;
-}
-
-.eye-icon:hover {
-  background-color: rgba(240, 239, 239, 0.911);
-  border: solid 2px rgb(207, 207, 207);
-  cursor: pointer;
 }
 
 .username_input:hover {
   background-color: rgba(240, 239, 239, 0.911);
   border: solid 2px rgb(207, 207, 207);
-}
-
-.password_input:hover {
-  background-color: rgba(240, 239, 239, 0.911);
 }
 
 .btn_singIn:hover {
