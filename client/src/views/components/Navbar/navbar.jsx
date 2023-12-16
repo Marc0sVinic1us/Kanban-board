@@ -25,7 +25,7 @@ function Navbar() {
 
             <h1 className="app-name">Kanban Board</h1>
 
-            <h4>Olá {firstUserName}!</h4>
+            <h4>Olá, {firstUserName}!</h4>
             
             { token && token !== "" && token !== undefined ? 
                 

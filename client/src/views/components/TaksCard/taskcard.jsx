@@ -1,5 +1,9 @@
 
+import { Draggable } from "@hello-pangea/dnd"
+
 import "./taskcard_style.css"
+
+import dragIcon from "../../../assets/svg/drag-icon.svg"
 
 function TaskCard(props) {
 
@@ -31,12 +35,24 @@ function TaskCard(props) {
     }
 
     return (
-        <div className="task-card" onClick={handleClick} style={{border: priorityColor}}>
-            {/* <strong>{props.taskName}</strong> */}
-            <p>{props.taskName}</p>
-            {/* <textarea name="taskname" id="taskname-textarea" cols="10" rows="10">{props.taskname}</textarea> */}
-            <small>{props.taskDescription}</small>    
-        </div>
+        <Draggable draggableId={String(props.taskKey)} index={props.index}>
+            {(provided) => (    
+                <div 
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                    className="task-card" 
+                    onClick={handleClick} 
+                    style={{border: priorityColor}}
+                >
+                    <div className="task-content">
+                        <p>{props.taskName}</p>
+                        <small>{props.taskDescription}</small>
+                    </div>
+                    <img src={dragIcon} alt="Arrastar" />
+                </div>
+            )}
+        </Draggable>
     )
 }
 

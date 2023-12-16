@@ -1,5 +1,5 @@
 
-.navbar {
+nav {
     position: fixed;
     top: 0;
     display: flex;
@@ -15,12 +15,23 @@
 }
 
 .app-name {
-    font-size: 23px;
+    font-size: 22px;
+    text-align: left;
+    width: 25%;
+    max-width: 160px;
+}
+
+nav h4 {
+    font-size: 100%;
+    width: 23%;
+    max-width: 150px;
+    text-align: center;
 }
 
 .btn-logActions {
     height: 35px;
-    width: 80px;
+    width: 23%;
+    max-width: 100px;
     border-radius: 10px;
     font-size: 15px;
     border: solid 2px transparent;
@@ -28,6 +39,7 @@
     color: white;
     background-color: rgb(67, 167, 197);
 }
+
 
 .btn-logActions:hover {
     background-color: rgb(62, 147, 173);

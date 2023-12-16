@@ -1,6 +1,8 @@
 
 import { React, useState, useEffect } from 'react';
 
+import { DragDropContext, Droppable } from "@hello-pangea/dnd"
+
 import "./home_style.css"
 import "../../../styles/global.css"
 
@@ -16,6 +18,8 @@ function Home() {
     const [popupTask, setPopupTask] = useState(false);
     const [taskCards, setTaskCards] = useState([]);
     const [taskDataView, setTaskDataView] = useState(null);
+
+    let refreshTasksController = (refreshTasks ? taskCards : "");
 
     useEffect(() => {
         
@@ -54,7 +58,7 @@ function Home() {
         })
         .catch(err => console.error(err))
     
-    }, [(refreshTasks ? taskCards : "")]);
+    }, [refreshTasksController]);
     
     const token = sessionStorage.getItem("token")
     
@@ -82,6 +86,25 @@ function Home() {
         }
     }
 
+    function reorder(arr, startIndex, endIndex) {
+        const result = Array.from(arr);
+        const [removed] = result.splice(startIndex, 1)
+        result.splice(endIndex, 0, removed)
+
+        return result
+    }
+
+    const handleDropTask = (result) => {
+        
+        if(!result.destination) {
+            return;
+        }
+
+        const tasks = reorder(taskCards, result.source.index, result.destination.index)
+        setTaskCards(tasks)
+    
+    }
+   
     return (
 
         <div className="body-container">
@@ -110,28 +133,41 @@ function Home() {
                 <div className="boards">
 
                     <aside>
+                        <DragDropContext onDragEnd={handleDropTask}>
                         <h3>TO DO</h3>
                         <section>
-                            
-                            { taskCards !== null && taskCards !== undefined && Array.isArray(taskCards) ?
+                                <Droppable droppableId='todo' type='list' direction='vertical'>
+                                    {(provided) => (
+                                        <article
+                                            ref={provided.innerRef}
+                                            {...provided.droppableProps}
+                                        >
+                                            { taskCards !== null && taskCards !== undefined && Array.isArray(taskCards) ? (
+                                            
+                                                taskCards.map((task, index) => (                            
+                                                    
+                                                    <TaskCard 
+                                                    key={task.key}
+                                                    index={index}
+                                                    taskKey={task.key}
+                                                    taskName={task.taskname}
+                                                    taskDescription={task.taskdescription}
+                                                    taskPriority={task.taskpriority}
+                                                    setTriggerViewTask={setPopupTask}
+                                                    setTaskDataView={setTaskDataView}
+                                                    />
+                                                    
+                                                    ))
+                                                ) : ""
+                                            }
 
-                                taskCards.map(task => (                            
-                                    
-                                    <TaskCard 
-                                        key={task.key}
-                                        taskKey={task.key}
-                                        taskName={task.taskname}
-                                        taskDescription={task.taskdescription}
-                                        taskPriority={task.taskpriority}
-                                        setTriggerViewTask={setPopupTask}
-                                        setTaskDataView={setTaskDataView}
-                                    />
-                                
-                                ))
-                                : ""
-                            }
-                        
+                                            {provided.placeholder}
+                                            </article>
+                                        )
+                                    }
+                                </Droppable>
                         </section>
+                        </DragDropContext>
                     </aside>
 
                     <aside>
