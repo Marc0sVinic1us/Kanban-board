@@ -10,7 +10,7 @@ def updateTask():
     
     userTask = request.form["userTask"]
 
-    (taskName, taskDescription, taskPriority, taskID) = userTask.split(",")
+    (taskName, taskDescription, taskPriority, taskID, taskStatus) = userTask.split(",")
 
     task = NewTask.query.get(taskID)
 
@@ -19,6 +19,7 @@ def updateTask():
         task.taskname = taskName
         task.taskdescription = taskDescription
         task.taskpriority = taskPriority
+        task.taskstatus = taskStatus
             
         status = task.send_to_db('update')
         

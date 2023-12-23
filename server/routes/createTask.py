@@ -10,13 +10,14 @@ def createTask():
     
     userTask = request.form["userTask"]
 
-    (taskName, taskDescription, taskPriority, userID) = userTask.split(",")
+    (taskName, taskDescription, taskPriority, userID, taskstatus) = userTask.split(",")
 
     new_task = NewTask(
-                        user_id=userID, 
-                        taskname=taskName, 
-                        taskdescription=taskDescription, 
-                        taskpriority=taskPriority
+                    user_id=userID, 
+                    taskname=taskName, 
+                    taskdescription=taskDescription, 
+                    taskpriority=taskPriority,
+                    taskstatus=taskstatus
                 )
         
     status = new_task.send_to_db('create')

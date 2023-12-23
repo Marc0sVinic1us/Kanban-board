@@ -15,12 +15,14 @@ def showTasks():
 
     tasks = []
     for task in user.task:
+
         tasks.append(
             {
                 "key": task.id,
                 "taskname": task.taskname,
                 "taskdescription": task.taskdescription,
-                "taskpriority": task.taskpriority
+                "taskpriority": task.taskpriority,
+                "taskstatus": task.taskstatus
             }
         )
 
