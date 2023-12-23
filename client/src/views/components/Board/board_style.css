@@ -1,19 +1,48 @@
 .boards aside {
     background-color: transparent;
     width: 18vw;
-    height: 60vh;
-}
+    height: 55vh;
+    width: 90%;
+    min-width: 200px;
+  }
   
-.boards aside h3 {
+  .boards aside h3 {
     font-weight: bold;
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
     margin-left: 20px;
-}
+  }
   
-.boards aside section {
-    text-align: center;
+  .boards aside section {
     border: solid 1px rgb(62, 147, 173);
-    border-radius: 20px;
+    border-radius: 4px;
     height: 100%;
-}
+    width: 100%;
+    overflow: auto;
+  } 
+  
+  .boards aside section article {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Estilo da barra de rolagem */
+  .boards aside section::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Estilo da scrollbar */
+  .boards aside section::-webkit-scrollbar-thumb {
+    background-color: #0861af;
+    border-radius: 10px;
+  }
+  
+  /* Estilo do trilho da scrollbar */
+  .boards aside section::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+  }
+  

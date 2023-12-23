@@ -11,6 +11,7 @@ function ContainerCreateCard(props) {
     const [ taskName, setTaskName ] = useState("");
     const [ taskDescription, setTaskDescription ] = useState("");
     const [ taskPriority, setTaskPriority ] = useState("")
+    const [ taskStatus, setTaskStatus ] = useState("")
     const [ confirmationClose, setConfirmationClose ] = useState(false)
 
     const token = sessionStorage.getItem("token")
@@ -24,7 +25,7 @@ function ContainerCreateCard(props) {
         e.preventDefault();
 
         const formdata = new FormData();
-        formdata.append("userTask", [taskName, taskDescription, Number(taskPriority), userID]);
+        formdata.append("userTask", [taskName, taskDescription, Number(taskPriority), userID, taskStatus]);
         
         // Enviando requisição para o back-end com token de acesso
         fetch("http://localhost:5000/createTask", {
@@ -164,6 +165,19 @@ function ContainerCreateCard(props) {
                             <option value="2">Prioridade 2</option>
                             <option value="3">Prioridade 3</option>
                             <option value="4">Prioridade 4</option>
+                        </select>
+                        
+                        <select 
+                            required
+                            name="statusDropdown" 
+                            id="statusDropdown"
+                            value={taskStatus}
+                            onChange={(e) => setTaskStatus(e.target.value)}
+                        >
+                            <option value="">Selecione o status da tarefa   </option>
+                            <option value="TO DO">TO DO (A fazer)</option>
+                            <option value="DOING">DOING (Fazendo)</option>
+                            <option value="DONE">DONE (Feita)</option>
                         </select>
         
                     </div>

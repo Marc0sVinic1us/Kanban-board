@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 
 import "./register_style.css"
-import "../../../styles/global.css"
 
 import left_arrow from "../../../assets/svg/backArrow-icon.svg"
 

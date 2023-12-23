@@ -1,7 +1,6 @@
 
 import { React, useState, useEffect } from 'react';
-
-import { DragDropContext, Droppable } from "@hello-pangea/dnd"
+import { DragDropContext } from "react-beautiful-dnd"
 
 import "./home_style.css"
 import "../../../styles/global.css"
@@ -9,7 +8,7 @@ import "../../../styles/global.css"
 import Navbar from "../../components/Navbar/navbar.jsx";
 import ContainerCreateCard from "../../components/ContainerCreateCard/containerCreateCard.jsx";
 import ContainerViewCard from '../../components/ContainerViewCard/containerViewCard.jsx';
-import TaskCard from '../../components/TaksCard/taskcard.jsx';
+import Board from '../../components/Board/board.jsx';
 
 function Home() {
     
@@ -132,59 +131,32 @@ function Home() {
 
                 <div className="boards">
 
-                    <aside>
-                        <DragDropContext onDragEnd={handleDropTask}>
-                        <h3>TO DO</h3>
-                        <section>
-                                <Droppable droppableId='todo' type='list' direction='vertical'>
-                                    {(provided) => (
-                                        <article
-                                            ref={provided.innerRef}
-                                            {...provided.droppableProps}
-                                        >
-                                            { taskCards !== null && taskCards !== undefined && Array.isArray(taskCards) ? (
-                                            
-                                                taskCards.map((task, index) => (                            
-                                                    
-                                                    <TaskCard 
-                                                    key={task.key}
-                                                    index={index}
-                                                    taskKey={task.key}
-                                                    taskName={task.taskname}
-                                                    taskDescription={task.taskdescription}
-                                                    taskPriority={task.taskpriority}
-                                                    setTriggerViewTask={setPopupTask}
-                                                    setTaskDataView={setTaskDataView}
-                                                    />
-                                                    
-                                                    ))
-                                                ) : ""
-                                            }
+                    <DragDropContext onDragEnd={handleDropTask}>
 
-                                            {provided.placeholder}
-                                            </article>
-                                        )
-                                    }
-                                </Droppable>
-                        </section>
-                        </DragDropContext>
-                    </aside>
-
-                    <aside>
-                        <h3>DOING</h3>
-                        <section>
-                        </section>
-                    </aside>
-
-                    <aside>
-                        <h3>DONE</h3>
-                        <section>
-                        </section>
-                    </aside>
+                        <Board 
+                            boardName="TO DO"
+                            taskCards={taskCards}
+                            setPopupTask={setPopupTask}
+                            setTaskDataView={setTaskDataView}
+                        />
+                        
+                        <Board 
+                            boardName="DOING"
+                            taskCards={taskCards}
+                            setPopupTask={setPopupTask}
+                            setTaskDataView={setTaskDataView}
+                        />
+                        
+                        <Board 
+                            boardName="DONE"
+                            taskCards={taskCards}
+                            setPopupTask={setPopupTask}
+                            setTaskDataView={setTaskDataView}
+                        />
                     
+                    </DragDropContext>
                 </div>
             </div>
-        
         </div>
     )
 }

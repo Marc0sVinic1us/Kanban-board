@@ -1,5 +1,6 @@
 
-import { Draggable } from "@hello-pangea/dnd"
+// import { Draggable } from "@hello-pangea/dnd"
+import { Draggable } from "react-beautiful-dnd"
 
 import "./taskcard_style.css"
 
@@ -29,13 +30,14 @@ function TaskCard(props) {
                 "taskKey": props.taskKey,
                 "taskName" : props.taskName,
                 "taskDescription": props.taskDescription,
-                "taskPriority": props.taskPriority
+                "taskPriority": props.taskPriority,
+                "taskStatus": props.taskStatus
             }
         );       
     }
 
     return (
-        <Draggable draggableId={String(props.taskKey)} index={props.index}>
+        <Draggable draggableId={String(props.index)} index={props.index}>
             {(provided) => (    
                 <div 
                     {...provided.draggableProps}

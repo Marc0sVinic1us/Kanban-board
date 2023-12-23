@@ -1,7 +1,6 @@
 import  { React, useState } from "react"
 
 import './login_style.css';
-import "../../../styles/global.css"
 
 import PasswordInput from "../../components/PasswordInput/passwordInput.jsx";
 
