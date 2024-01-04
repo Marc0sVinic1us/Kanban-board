@@ -45,3 +45,14 @@ nav h4 {
     background-color: rgb(62, 147, 173);
     border: solid 2px rgb(71, 164, 192);
 }
+
+nav img {
+    width: 36px;
+    border-radius: 10px;
+    padding: 3px;
+    transition: all 0.2s;
+}
+
+nav img:hover {
+    background-color: dodgerblue;
+}
