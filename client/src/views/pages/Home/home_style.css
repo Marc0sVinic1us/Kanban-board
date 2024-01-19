@@ -29,6 +29,7 @@
 .btn-createTask:hover {
     background-color: rgb(62, 147, 173);
     border: solid 2px rgb(71, 164, 192);
+    font-size: 30px;
 }
 
 .boards {

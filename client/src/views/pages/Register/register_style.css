@@ -21,7 +21,7 @@
 }
 
 .singUp-labels {
-    margin-top: 30px;
+    margin-top: 25px;
     margin-bottom: 5px;
     font-size: 16px;
     font-weight: bold;
@@ -49,17 +49,19 @@
 
 .returnPage-img {
     position: absolute;
-    width: 40px;
+    width: 45px;
     border-radius: 10px;
     border: solid 2px transparent;
     margin-top: 15px;
     margin-left: 15px;
+    padding: 3px 3px;
     transition: all, 0.2s;
 }
 
 .returnPage-img:hover {
     background-color: rgb(62, 147, 173);
     border: solid 2px rgb(71, 164, 192);
+    padding: 0;
 }
 
 .register-container {

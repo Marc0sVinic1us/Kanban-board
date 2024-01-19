@@ -14,8 +14,13 @@ body {
   background: linear-gradient(to bottom, #607bb1, #3973df);
 }
 
-input, button, textarea {
+button {
   cursor: pointer;
   font-weight: bold;
-  outline: none;
 }
+
+input, textarea {
+  outline: none;
+  font-weight: bold;
+}
+

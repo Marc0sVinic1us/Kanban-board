@@ -174,7 +174,7 @@ function ContainerViewCard(props) {
                     />
                 ) : ""} 
                
-                <img src={trashIcon} onClick={() => setConfirmationDelete(true)} className='deleteTask-icon' alt="Delete task" />
+                <img src={trashIcon} title='Deletar tarefa' onClick={() => setConfirmationDelete(true)} className='deleteTask-icon' alt="Delete task" />
                     
                 <form className='taskForm-viewTask' onSubmit={handleEditTask}>
 

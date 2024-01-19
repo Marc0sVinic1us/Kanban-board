@@ -20,7 +20,7 @@ function Profile() {
 
                 <div className='back-screen'>
                     <div className='back-screen-header'>
-                        <img src={backArrow}  className="back-arrow" alt="Voltar" onClick={() => window.location.href = "/home"} />
+                        <img src={backArrow} title='Voltar' className="back-arrow" alt="Voltar" onClick={() => window.location.href = "/home"} />
                         <div />
                     </div>
                     <img src={profileCircleIcon} className='profile-photo' alt="Foto perfil" />

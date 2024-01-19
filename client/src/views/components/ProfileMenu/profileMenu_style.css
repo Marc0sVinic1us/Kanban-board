@@ -10,6 +10,7 @@
     border-radius: 20px;
     z-index: 3;
     background-color: white;
+    box-shadow: 3px 3px 10px #535353;
 }
 
 .profileMenu-bodyContainer::before {

@@ -69,7 +69,7 @@ function Login() {
             <PasswordInput 
               state={password}
               onChange={setPassword}
-              showRegexError={false}
+              showPasswordStrenghtMeter={false}
               />
           
           </div>
@@ -86,7 +86,7 @@ function Login() {
 
         <div className='link-singUp'>
           <p>Não tem cadastro?</p>
-          <a href='/singUp'>Clique aqui</a>
+          <a href='/register'>Clique aqui</a>
         </div>
       
       </div>    

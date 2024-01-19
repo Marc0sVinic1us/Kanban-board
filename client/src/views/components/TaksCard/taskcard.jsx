@@ -44,6 +44,7 @@ function TaskCard(props) {
                     {...provided.dragHandleProps}
                     ref={provided.innerRef}
                     className="task-card" 
+                    title="Ver detalhes da tarefa"
                     onClick={handleClick} 
                     style={{border: priorityColor}}
                 >

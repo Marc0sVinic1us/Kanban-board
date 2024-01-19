@@ -38,7 +38,15 @@
 }
 
 .back-arrow {
-    width: 35px;
+    width: 40px;
+    padding: 3px 3px;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.back-arrow:hover {
+    background-color: rgb(46, 129, 211);
+    padding: 0;
 }
 
 .back-screen-header {

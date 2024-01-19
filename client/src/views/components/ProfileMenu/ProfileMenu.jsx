@@ -20,8 +20,8 @@ function ProfileMenu(props) {
         <div className="profileMenu-bodyContainer">
 
             <div className="profileMenu-content">
-                <button className="btn-profile-actions" onClick={() => window.location.href = "/profile"}>Meu perfil</button>
-                <button className="btn-logout" onClick={handleLogout}>Sair</button>
+                <button className="btn-profile-actions" title="Configurar perfil" onClick={() => window.location.href = "/profile"}>Meu perfil</button>
+                <button className="btn-logout" title="Sair do app" onClick={handleLogout}>Sair</button>
             </div>
             
         </div>

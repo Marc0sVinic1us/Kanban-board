@@ -13,14 +13,14 @@ function Register() {
     const [ dateBirth, setDateBirth ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ confirmedPassword, setConfirmedPassword ] = useState("");
-    const [ resultRegex, setResultRegex ] = useState(false);
+    const [ passwordAccepted, setPasswordAccepted ] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (password === confirmedPassword) {
 
-            if (resultRegex) {
+            if (passwordAccepted) {
 
                 const formData = new FormData();
                 formData.append('user_singUp', [name, email, dateBirth, password]);
@@ -51,15 +51,12 @@ function Register() {
                 .catch(err => console.error(err));
             
             } else {
-                alert("Senha fraca! \nFavor verificar critérios de senha");
-                setPassword("")
-                setConfirmedPassword("")
+                alert("Senha não é forte o suficiente!");
             }
             
         } else {
             
             alert("Senhas divergentes! \nFavor verificar e inseri-las novamente.")
-            setPassword("")
             setConfirmedPassword("")
         }
     }
@@ -73,6 +70,7 @@ function Register() {
                     <img 
                         src={left_arrow} 
                         alt="page-back"
+                        title="Voltar"
                         className="returnPage-img"
                         />
                 </a>
@@ -115,8 +113,8 @@ function Register() {
                             id={'password_input'}
                             state={password}
                             onChange={setPassword}
-                            showRegexError={true}
-                            setResultRegex={setResultRegex}
+                            showPasswordStrenghtMeter={true}
+                            setPasswordAccepted={setPasswordAccepted}
                             />
 
                         <label className="singUp-labels">* Confirmar Senha:</label>
@@ -124,8 +122,8 @@ function Register() {
                             id={'confirmPassword_input'}
                             state={confirmedPassword}
                             onChange={setConfirmedPassword}
-                            showRegexError={false}
-                            setResultRegex={setResultRegex}
+                            showPasswordStrenghtMeter={false}
+                            setPasswordAccepted={setPasswordAccepted}
                             />
                         
                     </div>

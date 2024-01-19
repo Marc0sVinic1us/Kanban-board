@@ -47,12 +47,13 @@ nav h4 {
 }
 
 nav img {
-    width: 36px;
+    width: 40px;
     border-radius: 10px;
-    padding: 3px;
+    padding: 5px 5px;
     transition: all 0.2s;
 }
 
 nav img:hover {
     background-color: dodgerblue;
+    padding: 3px 3px;
 }

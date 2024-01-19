@@ -14,7 +14,7 @@ const routes = () => {
         <BrowserRouter>
             <Routes>
                 <Route element={ <Login /> } path="/" exact/>
-                <Route element={ <Register /> } path="/singUp" exact/>
+                <Route element={ <Register /> } path="/register" exact/>
                 <Route element = { <Home /> } path="/home" exact/>
                 <Route element = { <Profile /> } path="/profile" exact/>
             </Routes>

@@ -46,6 +46,7 @@
 .btnClose-createTask:hover {
     background-color: rgb(167, 21, 21);
     border: solid 2px rgb(184, 25, 25);
+    font-size: 18px;
 }
   
 .CreateTaskForm-fields {
