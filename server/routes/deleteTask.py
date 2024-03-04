@@ -1,27 +1,19 @@
 from flask import *
 from flask_jwt_extended import jwt_required
-from models.task import NewTask
+
+from controllers.taskControllers import deleteTask
 
 deleteTask_blueprint = Blueprint('deleteTask', __name__)
     
 @deleteTask_blueprint.route('/deleteTask', methods=['POST'])
 @jwt_required()
-def deleteTask():          
-    
-    userTask = request.form["userTask"]
+def deleteTaskRoute():          
 
-    taskID = userTask.split(",")
+    task_id = request.form["userTask"].split(",")
 
-    task = NewTask.query.get(taskID)
+    status = deleteTask(
+        task_id=task_id
+    )
 
-    if task:
-        status = task.send_to_db('delete')
-
-        return status
-    
-    else:
-        return {
-            'status': False,
-            'message': 'Tarefa inexistente'
-        }
+    return status
     

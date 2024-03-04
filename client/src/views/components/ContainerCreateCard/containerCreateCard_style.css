@@ -31,7 +31,7 @@
     height: 30px;
     width: 30px;
     border-radius: 5px;
-    font-size: 15px;
+    padding: 3px 3px;
     
     position: absolute;
     right: 10px;
@@ -46,7 +46,7 @@
 .btnClose-createTask:hover {
     background-color: rgb(167, 21, 21);
     border: solid 2px rgb(184, 25, 25);
-    font-size: 18px;
+    padding: 0;
 }
   
 .CreateTaskForm-fields {

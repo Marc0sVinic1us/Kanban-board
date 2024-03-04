@@ -1,8 +1,6 @@
-from flask import Flask
-from flask_cors import CORS
-from controllers.start_database import db 
-from config import ApplicationConfig
-from flask_jwt_extended import *
+
+# Importando configuração do app
+from utils.create_app import create_app
 
 # Importando rotas
 from routes.login import login_blueprint
@@ -12,14 +10,7 @@ from routes.showTasks import showTasks_blueprint
 from routes.updateTask import updateTask_blueprint
 from routes.deleteTask import deleteTask_blueprint
 
-app = Flask(__name__)
-CORS(app)
-
-app.config.from_object(ApplicationConfig)
-jwt = JWTManager(app)
-
-# Inicializa o banco de dados
-db.init_app(app)
+app = create_app()
 
 # Renderizando rotas
 app.register_blueprint(login_blueprint)

@@ -4,6 +4,7 @@ import { React, useState, useEffect } from 'react';
 import "./containerViewCard_style.css"
 import submitIcon from "../../../assets/svg/send-icon.svg";
 import trashIcon from "../../../assets/svg/trash-icon.svg"
+import closeIcon from "../../../assets/svg/close-icon.svg"
 import BooleanPopUp from '../BooleanPopUp/booleanPopUp.jsx';
 
 // import menuDotsIcon from "../../../img/menuDots-icon.png"
@@ -158,7 +159,8 @@ function ContainerViewCard(props) {
         <div className='popUp-viewTask'>
             <div className='popUpContent-viewTask'>
                 
-                <button className='btnClose-viewTask' title='Fechar painel' onClick={() => verifyChanges()}>X</button>
+                <img src={closeIcon} alt="Fechar painel" className='btnClose-viewTask' title='Fechar painel' onClick={() => verifyChanges()}/>
+                {/* <button className='btnClose-viewTask' title='Fechar painel' onClick={() => verifyChanges()}>X</button> */}
 
                 {/* <img src={menuDotsIcon} className='taskCard-menu' alt="More actions icon" />
 

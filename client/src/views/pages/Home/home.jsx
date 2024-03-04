@@ -10,6 +10,8 @@ import ContainerCreateCard from "../../components/ContainerCreateCard/containerC
 import ContainerViewCard from '../../components/ContainerViewCard/containerViewCard.jsx';
 import Board from '../../components/Board/board.jsx';
 
+import createIcon from "../../../assets/svg/create-icon.svg"
+
 function Home() {
     
     const [popUpVisible, setPopupVisible] = useState(false);
@@ -127,7 +129,7 @@ function Home() {
 
             <div className="home-container">
 
-                <button className="btn-createTask" title="Criar nova tarefa" onClick={handleCreateTask}>+</button>
+                <img className='btn-createTask' title="Criar nova tarefa" onClick={handleCreateTask} src={createIcon} alt="Criar tarefa" />
 
                 <div className="boards">
 

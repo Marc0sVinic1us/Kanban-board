@@ -1,8 +1,8 @@
 
 from flask_sqlalchemy import *
-from controllers.start_database import db
+from utils.start_database import db
 
-class SingUp(db.Model):
+class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), nullable=False)
@@ -10,7 +10,7 @@ class SingUp(db.Model):
     user_dateOfBirth = db.Column(db.Date, nullable=True)
     user_password = db.Column(db.String(200), nullable=False)
 
-    task = db.relationship('NewTask', back_populates='user')
+    task = db.relationship('Task', back_populates='user')
     
     def __init__(self, username, useremail, user_dateOfBirth, user_password):
         self.username = username

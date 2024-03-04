@@ -1,8 +1,8 @@
 
 from flask_sqlalchemy import *
-from controllers.start_database import db
+from utils.start_database import db
 
-class NewTask(db.Model):
+class Task(db.Model):
     __tablename__ = 'tasks'
     id = db.Column(db.Integer, primary_key=True)
     taskname = db.Column(db.String(100), nullable=False)
@@ -14,7 +14,7 @@ class NewTask(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     
     # Relacionamento entre Tarefa e Usuário
-    user = db.relationship('SingUp', back_populates='task')
+    user = db.relationship('User', back_populates='task')
     
     def __init__(self, taskname, taskdescription, taskpriority, user_id, taskstatus):
         self.taskname = taskname

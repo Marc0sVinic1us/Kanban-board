@@ -6,7 +6,7 @@ import "./passwordStrenghtMeter_style.css"
 function PasswordStrenghtMeter(props) {
 
     const testPassword = zxcvbn(props.password);
-    const passwordStrenght = (testPassword.score * 100/4).toFixed(0);
+    const passwordStrenght = testPassword.score * 100/4;
     
     const changePasswordColor = () => ({
         width: `${passwordStrenght}%`,
@@ -21,29 +21,29 @@ function PasswordStrenghtMeter(props) {
             props.setPasswordAccepted(false)
             return 'Muito fraca'
         }
-        else if (passwordStrenght == 25) {
+        else if (passwordStrenght === 25) {
             props.setPasswordAccepted(false)
             return 'Fraca'
         }
-        else if (passwordStrenght == 50) {
+        else if (passwordStrenght === 50) {
             props.setPasswordAccepted(false)
-            return 'Mediana'
-        }
-        else if (passwordStrenght == 75) {
-            props.setPasswordAccepted(true)
             return 'Boa'
+        }
+        else if (passwordStrenght === 75) {
+            props.setPasswordAccepted(true)
+            return 'Forte'
         }
         else {
             props.setPasswordAccepted(true)
-            return 'Forte'
+            return 'Muito forte'
         }
     }
 
     const progressColor = () => {        
         if (passwordStrenght <= 0) return '#828282'
-        else if (passwordStrenght == 25) return '#EA1111'
-        else if (passwordStrenght == 50) return '#FFAD00'
-        else if (passwordStrenght == 75) return '#9BC158'
+        else if (passwordStrenght === 25) return '#EA1111'
+        else if (passwordStrenght === 50) return '#FFAD00'
+        else if (passwordStrenght === 75) return '#9BC158'
         else return '#00B500'
     }
 

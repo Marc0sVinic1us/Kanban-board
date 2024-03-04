@@ -1,30 +1,30 @@
 from flask import *
 from flask_jwt_extended import jwt_required
 
-from models.user import SingUp
+from controllers.taskControllers import getTaskskByUserID
 
 showTasks_blueprint = Blueprint('showTasks', __name__)
 
 @showTasks_blueprint.route('/showTasks', methods=['POST', 'GET'])
 @jwt_required()
 def showTasks():          
-    
-    userID = request.form["userID"]
 
-    user = SingUp.query.get(userID)
+    user_id = request.form["userID"]
 
-    tasks = []
-    for task in user.task:
+    tasks = getTaskskByUserID(
+        user_id=user_id
+    )
 
-        tasks.append(
-            {
-                "key": task.id,
-                "taskname": task.taskname,
-                "taskdescription": task.taskdescription,
-                "taskpriority": task.taskpriority,
-                "taskstatus": task.taskstatus
-            }
-        )
+    arrTasks = []
+    for task in tasks:
 
-    return tasks
+        arrTasks.append({
+            "key": task.id,
+            "taskname": task.taskname,
+            "taskdescription": task.taskdescription,
+            "taskpriority": task.taskpriority,
+            "taskstatus": task.taskstatus
+        })
+
+    return arrTasks
 

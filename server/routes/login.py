@@ -1,7 +1,8 @@
 from flask import *
-from models.user import SingUp
-from controllers.check_password import check_password
+from utils.check_password import check_password
 from flask_jwt_extended import create_access_token
+
+from controllers.userControllers import getUserByEmail
 
 # login_blueprint = Blueprint("/login")
 login_blueprint = Blueprint('login', __name__)
@@ -13,7 +14,9 @@ def login():
     
     (username, password) = user_credentials.split(",")
 
-    user = SingUp.query.filter_by(useremail=username).first()
+    user = getUserByEmail(
+        useremail=username
+    )
 
     if user and check_password(password, user.user_password):
         

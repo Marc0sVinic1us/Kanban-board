@@ -3,6 +3,7 @@ import { React, useState, useEffect } from 'react';
 
 import "./containerCreateCard_style.css"
 import submitIcon from "../../../assets/svg/send-icon.svg";
+import closeIcon from "../../../assets/svg/close-icon.svg"
 
 import BooleanPopUp from '../BooleanPopUp/booleanPopUp';
 
@@ -115,7 +116,7 @@ function ContainerCreateCard(props) {
         <div className='popUp-createTask'>
             <div className='popUpContent-createTask'>
                 
-                <button className='btnClose-createTask' title='Fechar painel' onClick={handleConfirmationClose}>X</button>
+                <img src={closeIcon} className='btnClose-createTask' alt="Fechar painel" title='Fechar painel' onClick={handleConfirmationClose}/>
                 
                 <h2>Nova tarefa</h2>
 
