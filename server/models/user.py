@@ -20,24 +20,3 @@ class User(db.Model):
 
     def __repr__(self):
         return f"{self.username}"
-    
-    def send_to_db(self):
-        db.session.add(self)
-
-        try:
-            # Commit para salvar a instância no banco de dados
-            db.session.commit()
-            print("-> NOVO USUÁRIO CADASTRADO")
-
-            return {
-                    'status': True, 
-                    'message': 'Cadastro realizado com sucesso!'
-                    }
-
-        except:
-            # Em caso de erro, faça rollback
-            db.session.rollback()
-            return {
-                    'status': False, 
-                    'message': 'Erro no cadastro de usuário'
-                    }
