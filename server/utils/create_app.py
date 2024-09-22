@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
-from utils.start_database import db 
+from config.db_config import db
 import os
 from config.db_config import DatabaseConfig
 from flask_jwt_extended import *

@@ -1,4 +1,8 @@
 
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+
 # DATABASE CREDENTIALS
 # PgAdmin_password: Vi28?0703
 # Port: 5432

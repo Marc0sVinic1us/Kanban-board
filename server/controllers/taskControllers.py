@@ -1,5 +1,5 @@
 
-from utils.start_database import db
+from config.db_config import db
 from models.task import Task
 
 
