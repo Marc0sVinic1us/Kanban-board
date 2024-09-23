@@ -24,15 +24,11 @@ function Home() {
 
     useEffect(() => {
         
-        const formdata = new FormData();
         const userID = sessionStorage.getItem("userID")
         const token = sessionStorage.getItem("token")
-
-        formdata.append("userID", [userID])
         
-        fetch("http://localhost:5000/showTasks", {
-            method: 'POST',
-            body: formdata,
+        fetch(`http://localhost:5000/showTasks/${userID}`, {
+            method: 'GET',
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -42,19 +38,22 @@ function Home() {
                 if (response.status === 401) {
                     alert("Sessão expirada, favor se autenticar novamente")
                     window.location.href = "/";
-
+                
                 } else {
-
                     console.error("Error: " + response.status);
                 }
             } else {
-                
                 return response.json();
             }
         })
         .then(data => {
 
-            setTaskCards(data);
+            if (data.status) {
+                setTaskCards(data.data);
+            
+            } else {
+                alert("Falha na busca de tarefas")
+            }
         
         })
         .catch(err => console.error(err))

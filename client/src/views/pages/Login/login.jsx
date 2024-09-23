@@ -51,11 +51,11 @@ function Login() {
       
       <div className="login-container">     
         
-        <h1 className='singIn-title'>Login</h1>
-        <form className="singIn-form" onSubmit={handleSubmit}>
+        <h1 className='signIn-title'>Login</h1>
+        <form className="signIn-form" onSubmit={handleSubmit}>
           
-          <div className="singIn-inputs">           
-            <label className='singIn-labels'>Email:</label>
+          <div className="signIn-inputs">           
+            <label className='signIn-labels'>Email:</label>
             <input 
                 type="email"
                 id="userEmail"
@@ -65,7 +65,7 @@ function Login() {
                 required
                 />
 
-            <label className='singIn-labels'>Senha:</label>
+            <label className='signIn-labels'>Senha:</label>
             <PasswordInput 
               state={password}
               onChange={setPassword}
@@ -74,17 +74,17 @@ function Login() {
           
           </div>
         
-          <div className='container-btnSingIn'> 
+          <div className='container-btnSignIn'> 
             <button 
               type='submit'
-              className='btn_singIn'
+              className='btn_signIn'
               >Entrar
             </button>
           </div>
         
         </form>
 
-        <div className='link-singUp'>
+        <div className='link-signUp'>
           <p>Não tem cadastro?</p>
           <a href='/register'>Clique aqui</a>
         </div>

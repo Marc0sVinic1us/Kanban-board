@@ -14,13 +14,13 @@
     height: 40px;
 }
 
-.singUp-title{
+.signUp-title{
     font-size: 30px;
     width: 100%;
     text-wrap: wrap;
 }
 
-.singUp-labels {
+.signUp-labels {
     margin-top: 25px;
     margin-bottom: 5px;
     font-size: 16px;
@@ -86,7 +86,7 @@
     line-height: 20px;
 }
 
-.singUp-form {
+.signUp-form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,7 +95,7 @@
     
 }
 
-.bnt-singUp {
+.bnt-signUp {
     height: 55px;
     width: 55%;
     max-width: 320px;
@@ -107,12 +107,12 @@
     background-color: rgb(67, 167, 197);
 }
 
-.bnt-singUp:hover {
+.bnt-signUp:hover {
     background-color: rgb(62, 147, 173);
     border: solid 2px rgb(71, 164, 192);
   }
 
-.singUp-password-container {
+.signUp-password-container {
     display: flex;
     align-items: center;  
     

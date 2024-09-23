@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.singIn-title {
+.signIn-title {
   margin-top: 5vh;
   padding-bottom: 50px; 
   font-size: 35px;
@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.singIn-inputs {
+.signIn-inputs {
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -24,7 +24,7 @@
   max-width: 300px;
 }
 
-.singIn-labels {
+.signIn-labels {
   margin-top: 20px;
   margin-bottom: 10px; 
   font-size: 16px;
@@ -64,14 +64,14 @@ a:hover {
   background-color: rgba(252, 252, 252, 0.781);
 }
 
-.singIn-form {
+.signIn-form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.btn_singIn {
+.btn_signIn {
   height: 45px;
   width: 220px;
   border-radius: 10px;
@@ -82,7 +82,7 @@ a:hover {
   background-color: rgb(67, 167, 197);
 }
 
-.container-btnSingIn {
+.container-btnSignIn {
   display: flex;  
   justify-content: center;
   text-align: center;
@@ -103,12 +103,12 @@ a:hover {
   border: solid 2px rgb(207, 207, 207);
 }
 
-.btn_singIn:hover {
+.btn_signIn:hover {
   background-color: rgb(62, 147, 173);
   border: solid 2px rgb(71, 164, 192);
 }
 
-.link-singUp {
+.link-signUp {
   display: flex;
   align-items: center;
   justify-content: center;

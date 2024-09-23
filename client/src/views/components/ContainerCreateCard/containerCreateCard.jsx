@@ -43,7 +43,6 @@ function ContainerCreateCard(props) {
                     window.location.href = "/";
 
                 } else {
-
                     console.error("Error: " + response.status);
                 }
             } else {
@@ -62,7 +61,7 @@ function ContainerCreateCard(props) {
                 setTaskPriority("");
             
             } else {
-                alert(data.message);    
+                alert("Falha na criação da tarefa, favor tentar novamente");    
             }
         })
         .catch(err => console.error(err))

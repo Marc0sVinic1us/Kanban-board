@@ -4,11 +4,13 @@ from flask_jwt_extended import create_access_token
 
 from controllers.userControllers import getUserByEmail
 
-# login_blueprint = Blueprint("/login")
 login_blueprint = Blueprint('login', __name__)
 
 @login_blueprint.route('/login', methods=['POST'])
 def login():
+
+    if not request.form or not 'user_credentials' in request.form:
+        abort(400)
 
     user_credentials = request.form["user_credentials"]
     
@@ -24,15 +26,16 @@ def login():
 
         print("-> USUÁRIO LOGADO")
         
-        return {
-                'status': True, 
-                'message': 'Login bem-sucedido',
-                'access_token': access_token,
-                'username': user.username,
-                'userID': user.id
-                }
+        return jsonify({
+            'status': True, 
+            'message': 'Login bem-sucedido',
+            'access_token': access_token,
+            'username': user.username,
+            'userID': user.id
+        })
+    
     else:
-        return {
-                'status': False, 
-                'message': 'Credenciais inválidas'
-                }
+        return jsonify({
+            'status': False, 
+            'message': 'Credenciais inválidas'
+        })

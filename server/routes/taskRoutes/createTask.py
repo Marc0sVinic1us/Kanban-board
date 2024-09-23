@@ -9,15 +9,23 @@ createTask_blueprint = Blueprint('createTask', __name__)
 @jwt_required()
 def createTaskRoute():          
     
+    if not request.form or not 'userTask' in request.form:
+        abort(400)
+    
     (taskName, taskDescription, taskPriority, userID, taskstatus) = request.form["userTask"].split(",")
 
-    status = createTask(
+    task = createTask(
         user_id=userID,
         taskname=taskName,
         task_priority=taskPriority,
         task_description=taskDescription,
         taskstatus=taskstatus
     )
-    
-    return status
 
+    if task:
+        return jsonify({
+            "status": True,
+            "message": "Tarefa criada com sucesso!"
+            }), 201
+
+    abort(500)

@@ -20,101 +20,91 @@ def createUser(username, user_dateOfBirth, user_password, useremail):
         db.session.commit()
         print("-> NOVO USUÁRIO CADASTRADO")
 
-        return {
-                'status': True, 
-                'message': 'Cadastro realizado com sucesso!'
-                }
+        return newUser
 
     except:
         # Em caso de erro, faça rollback
         db.session.rollback()
-        return {
-                'status': False, 
-                'message': 'Erro no cadastro de usuário'
-                }
+        return False
+    
+    finally:
+        db.session.close()
 
 
 # READ
 def getAllUsers():
 
-    users = User.query.all()
+    try:
+        users = User.query.all()
 
-    arrUsers = []
-    for user in users:
-
-        arrUsers.append({
-            "username": user.username,
-            "user_dateOfBirth": user.dateOfBirth,
-            "user_password": user.userpasword,
-            "useremail": user.useremail
-        })
-
-    return arrUsers
+        return users
+    
+    except:
+        return False
+    
+    finally:
+        db.session.close()
 
 
 def getUserByEmail(useremail):
-
-    user = User.query.filter_by(useremail=useremail).first()
-
-    return user
+    
+    try:
+        user = User.query.filter_by(useremail=useremail).first()
+        return user
+    
+    except:
+        return False
+    
+    finally:
+        db.session.close()
 
 
 # UPDATE
 def updateUser(user_id, username, user_dateOfBirth, user_password, useremail):
 
-    user = User.query.get(user_id)
-
-    if user:
-        
+    try:
+        user = User.query.get(user_id)        
         user.username = username
         user.user_dateOfBirth = user_dateOfBirth
         user.user_password = user_password
         user.usermail = useremail
-    
-    db.session.add(user)
+        
+        db.session.add(user)
 
-    try:
         # Commit para salvar as alterações no banco de dados
         db.session.commit()
         print("-> USUÁRIO ATUALIZADO")
 
-        return {
-                'status': True,
-                'message': 'Usuário atualizado com sucesso!'
-                }
+        return user
 
     except:
         # Em caso de erro, faça rollback
         db.session.rollback()
-        return {
-                'status': False, 
-                'message': 'Falha na atualização do usuário, favor tentar novamente'
-                }
+        return False
+    
+    finally:
+        db.session.close()
 
 
 # DELETE
 def deleteUser(user_id):
 
-    user = User.query.get(user_id)
-
-    db.session.delete(user)
-
     try:
+        user = User.query.get(user_id)
+
+        db.session.delete(user)
         
         # Commit para salvar as alterações no banco de dados
         db.session.commit()
         
         print("-> USUÁRIO EXCLUIDO")
 
-        return {
-                'status': True,
-                'message': 'Usuário excluido com sucesso!'
-                }
+        return True
 
     except:
         # Em caso de erro, faça rollback
         db.session.rollback()
-        return {
-                'status': False, 
-                'message': 'Falha na exclusão do usuário, favor tentar novamente'
-                }
+        return False
+
+    finally:
+        db.session.close()

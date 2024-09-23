@@ -23,9 +23,9 @@ function Register() {
             if (passwordAccepted) {
 
                 const formData = new FormData();
-                formData.append('user_singUp', [name, email, dateBirth, password]);
+                formData.append('user_signUp', [name, email, dateBirth, password]);
                 
-                fetch('http://localhost:5000/singUp', {
+                fetch('http://localhost:5000/signUp', {
                     method: 'POST',
                     body: formData
                 })
@@ -76,12 +76,12 @@ function Register() {
                 </a>
                 
                 <div className="signUpTitle-container">
-                    <h1 className="singUp-title">Cadastrar</h1>
+                    <h1 className="signUp-title">Cadastrar</h1>
                 </div>
 
-                <form className="singUp-form" onSubmit={handleSubmit}>
+                <form className="signUp-form" onSubmit={handleSubmit}>
                     <div className="inputs">
-                        <label className="singUp-labels">* Nome Completo:</label>
+                        <label className="signUp-labels">* Nome Completo:</label>
                         <input 
                             type="text"
                             id="userFullName"
@@ -90,7 +90,7 @@ function Register() {
                             value={name}
                             required
                             />
-                        <label className="singUp-labels">* E-mail:</label>
+                        <label className="signUp-labels">* E-mail:</label>
                         <input 
                             type="email"
                             id="userEmail"
@@ -99,7 +99,7 @@ function Register() {
                             value={email}
                             required
                             />
-                        <label className="singUp-labels">Data de Nascimento:</label>
+                        <label className="signUp-labels">Data de Nascimento:</label>
                         <input 
                             type="date"
                             id="userDateBirth"
@@ -108,7 +108,7 @@ function Register() {
                             value={dateBirth}
                             />
 
-                        <label className="singUp-labels">* Senha:</label>
+                        <label className="signUp-labels">* Senha:</label>
                         < PasswordInput 
                             id={'password_input'}
                             state={password}
@@ -117,7 +117,7 @@ function Register() {
                             setPasswordAccepted={setPasswordAccepted}
                             />
 
-                        <label className="singUp-labels">* Confirmar Senha:</label>
+                        <label className="signUp-labels">* Confirmar Senha:</label>
                         < PasswordInput 
                             id={'confirmPassword_input'}
                             state={confirmedPassword}
@@ -130,7 +130,7 @@ function Register() {
 
                     <button 
                         type="submit"
-                        className="bnt-singUp"
+                        className="bnt-signUp"
                         >Cadastrar
                     </button>
                 

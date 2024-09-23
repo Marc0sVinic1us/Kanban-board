@@ -33,7 +33,7 @@ function ContainerViewCard(props) {
         
         // Enviando requisição para o back-end com token de acesso
         fetch("http://localhost:5000/updateTask", {
-            method: 'POST',
+            method: 'PUT',
             body: formdata,
             headers: {
                 Authorization: "Bearer " + token
@@ -44,9 +44,8 @@ function ContainerViewCard(props) {
                 if (response.status === 401) {
                     alert("Sessão expirada, favor se autenticar novamente");
                     window.location.href = "/";
-
+                
                 } else {
-
                     console.error("Error: " + response.status);
                 }
             } else {
@@ -65,7 +64,7 @@ function ContainerViewCard(props) {
                 setTaskPriority("");    
             
             } else {
-                alert(data.message);
+                alert("Falha ao atualizar tarefa, favor tentar novamente");
             }
         })
         .catch(err => console.error(err))
@@ -73,13 +72,11 @@ function ContainerViewCard(props) {
 
     const handleDeleteTask = () => {
 
-        const formdata = new FormData();
-        formdata.append("userTask", [props.taskData.taskKey]);
+        const taskKey = props.taskData.taskKey;
         
         // Enviando requisição para o back-end com token de acesso
-        fetch("http://localhost:5000/deleteTask", {
-            method: 'POST',
-            body: formdata,
+        fetch(`http://localhost:5000/deleteTask/${taskKey}`, {
+            method: 'DELETE',
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -90,8 +87,10 @@ function ContainerViewCard(props) {
                     alert("Sessão expirada, favor se autenticar novamente");
                     window.location.href = "/";
 
+                } else if (response.status === 404) {
+                    alert("Falha na busca de tarefas do usuário");
+                
                 } else {
-
                     console.error("Error: " + response.status);
                 }
             } else {
@@ -110,7 +109,7 @@ function ContainerViewCard(props) {
                 setTaskPriority("");
 
             } else {
-                alert(data.message);
+                alert("Falha ao deletar tarefa");
             }
         })
         .catch(err => console.error(err))
